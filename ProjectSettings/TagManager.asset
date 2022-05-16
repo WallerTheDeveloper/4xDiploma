@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Planet
   - Star
-  - SelectionUnit
+  - SelectableUnit
   layers:
   - Default
   - TransparentFX
