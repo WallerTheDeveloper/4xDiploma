@@ -1,4 +1,5 @@
 using System;
+using Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Movement;
@@ -60,7 +61,7 @@ namespace Control
             _moveHasStarted = true;
             if (_moveShouldContinue && _moveHasStarted)
             {
-                GetComponent<Mover>().InteractWithMovement();
+;               GetComponent<Mover>().InteractWithMovement();
             }
         }
         private void OnClickStarted(InputAction.CallbackContext context) {

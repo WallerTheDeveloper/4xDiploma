@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Ships;
-using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Core.UnitSelection
@@ -10,36 +6,37 @@ namespace Core.UnitSelection
     public class UnitManager: MonoBehaviour, IPointerDownHandler
     {
         [SerializeField] private GameObject _selectionCircle;
+        
+        private void Start()
+        {
+            addPhysicsRaycaster();
+        }
 
-        public void OnPointerDown(PointerEventData eventData) // OnMouseDown alternative in new input system
+        public void OnPointerDown(PointerEventData eventData) // OnMouseDown alternative in new input system (only works with UI, but also with GameObjects if you add Physics Raycaster to Camera)
         {
             if (eventData.button == PointerEventData.InputButton.Left)
             {
-                SelectSingleUnit();
+                Globals.isClickedOnSingleUnit = true;
+                SelectUnit();
             }
         }
         
-        public void SelectUnit()
+        void addPhysicsRaycaster() // Move to another file!
         {
-            if (Globals.SELECTED_UNITS.Contains((this))) return;
-
-            Globals.SELECTED_UNITS.Add(this);
-
-            _selectionCircle.SetActive(true);
-        }
-
-        public void SelectSingleUnit()
-        {
-            Ray _ray;
-            RaycastHit _raycastHit;
-            _ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-            if (Physics.Raycast(_ray, out _raycastHit, Mathf.Infinity, Globals.SHIP_LAYER_MASK))
+            PhysicsRaycaster physicsRaycaster = FindObjectOfType<PhysicsRaycaster>();
+            if (physicsRaycaster == null)
             {
-                Globals.SELECTED_UNITS.Add(this);
-                _selectionCircle.SetActive(true);
+                Camera.main.gameObject.AddComponent<PhysicsRaycaster>();
             }
         }
-
+      
+        public void SelectUnit()
+        {
+            if (Globals.SELECTED_UNITS.Contains(this)) return;
+            Globals.isClickedOnSingleUnit = false;
+            Globals.SELECTED_UNITS.Add(this);
+            _selectionCircle.SetActive(true);
+        }
         public void DeselectUnit()
         {
             if (!Globals.SELECTED_UNITS.Contains(this)) return;
@@ -48,6 +45,5 @@ namespace Core.UnitSelection
             
             _selectionCircle.SetActive(false);
         }
-        
     }
 }

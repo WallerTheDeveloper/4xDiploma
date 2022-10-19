@@ -1,4 +1,5 @@
-﻿using Ships;
+﻿using System.Collections.Generic;
+using Ships;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,7 @@ namespace Core.UnitSelection
         private bool _isDragging = false;
         private Vector2 _dragStartPosition;
         private Color _greenColor = new Color(0.5f, 1f, 0.4f, 0.2f);
+
         private void Update()
         {
             if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -26,8 +28,13 @@ namespace Core.UnitSelection
             {
                 SelectUnitsInDraggingBox();
             }
-        }
 
+            if (Keyboard.current.escapeKey.wasPressedThisFrame)
+            {
+                DeselectAllUnits();
+            }
+        }
+        
         private void SelectUnitsInDraggingBox()
         {
             Bounds selectionBounds = Utilities.GetViewportBounds(Camera.main, _dragStartPosition, Mouse.current.position.ReadValue());
@@ -48,6 +55,13 @@ namespace Core.UnitSelection
                     unit.GetComponent<UnitManager>().DeselectUnit();
                 }
             }
+        }
+
+        public void DeselectAllUnits()
+        {
+            List<UnitManager> selectedUnits = new List<UnitManager>(Globals.SELECTED_UNITS);
+            foreach (UnitManager um in selectedUnits)
+                um.DeselectUnit();
         }
         
         private void OnGUI()

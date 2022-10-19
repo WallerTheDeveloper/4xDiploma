@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3786601148418827761}
   - component: {fileID: 3562039943753149768}
   - component: {fileID: 4522416817933012427}
-  - component: {fileID: -7154360248897145937}
   m_Layer: 7
   m_Name: Root Ship
   m_TagString: SelectableUnit
@@ -102,19 +101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f3d7fec37847bb8ea506d443a4bbab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-7154360248897145937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 979207774530766555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b7bb795ba1f4a0e8151da4ae8399e97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _selectionCircle: {fileID: 4170832831164166922}
 --- !u!1001 &4172571985755644930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -180,11 +166,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99021c869d4927145b9ede1a0c2339af, type: 3}
---- !u!1 &4170832831164166922 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1744106856748808, guid: 99021c869d4927145b9ede1a0c2339af, type: 3}
-  m_PrefabInstance: {fileID: 4172571985755644930}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4172731278017972580 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4346233700904294, guid: 99021c869d4927145b9ede1a0c2339af, type: 3}

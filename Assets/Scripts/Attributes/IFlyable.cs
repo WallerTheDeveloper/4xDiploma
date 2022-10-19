@@ -1,4 +1,4 @@
-namespace Game.Attributes
+namespace Attributes
 {
     public interface IFlyable
     { 

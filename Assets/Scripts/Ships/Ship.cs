@@ -1,5 +1,5 @@
-using UnityEngine;
-using Game.Attributes;
+using Attributes;
+using Core;
 using Movement;
 
 namespace Ships
@@ -37,15 +37,13 @@ namespace Ships
         // }
         //
         // public int MaxHp => _data.HP;
-        private ShipData _data;
-        private Transform _transform;
-        private int _currentHealth;
 
+        
         public void Fly()
         {
+            Globals.isFlyTriggered = true;
             StartCoroutine(SmoothRotate());
             StartCoroutine(CalculateMovement());
         }
-        
     }   
 }

@@ -1,5 +1,5 @@
 {
-    "name": "InputActions",
+    "name": "InputActionsAsset",
     "maps": [
         {
             "name": "Player",
@@ -9,6 +9,14 @@
                     "name": "ShipsControl",
                     "type": "Button",
                     "id": "ed468406-b961-4977-937d-094d6902235c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "NonGameplay",
+                    "type": "Button",
+                    "id": "4891e7ad-275d-46cf-873b-5cd0507770bf",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -23,6 +31,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ShipsControl",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8e4818ce-3f21-44ca-8a86-f66e7350ac4c",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NonGameplay",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

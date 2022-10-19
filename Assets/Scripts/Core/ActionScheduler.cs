@@ -14,7 +14,6 @@ namespace Core
             {
                 _currentAction.Cancel();
             }
-
             _currentAction = action;
         }
 
