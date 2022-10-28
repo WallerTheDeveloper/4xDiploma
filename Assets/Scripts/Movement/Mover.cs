@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Core;
 using Ships;
 using UnityEngine;
@@ -9,7 +8,7 @@ using Vector3 = UnityEngine.Vector3;
 
 namespace Movement
 {
-    [RequireComponent(typeof(Rigidbody), typeof(Ship), typeof(ActionScheduler))]
+    [RequireComponent(typeof(Rigidbody), typeof(ActionScheduler))]
     public class Mover: MonoBehaviour, IAction
     {
         private float _speed = 5f;
@@ -19,8 +18,15 @@ namespace Movement
         private Quaternion _rotation;
         private Transform _currentTargetLocation;
 
-        private static Ray GetMouseRay => Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        private BasicShip _basicShip;
         
+        private static Ray GetMouseRay => Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+        private void Awake()
+        {
+            _basicShip = GetComponent<BasicShip>();
+        }
+
         public void InteractWithMovement()
         {
             if (Globals.isFlyTriggered)
@@ -44,7 +50,7 @@ namespace Movement
             }
             _currentTargetLocation = destination;
 
-            GetComponent<Ship>().Fly();
+            _basicShip.Fly();
         }
 
         public void Cancel()

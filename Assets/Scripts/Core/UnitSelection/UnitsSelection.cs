@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using Ships;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -38,11 +39,11 @@ namespace Core.UnitSelection
         private void SelectUnitsInDraggingBox()
         {
             Bounds selectionBounds = Utilities.GetViewportBounds(Camera.main, _dragStartPosition, Mouse.current.position.ReadValue());
-            Ship[] selectableUnits = FindObjectsOfType<Ship>();
+            BasicShip[] selectableUnits = FindObjectsOfType<BasicShip>();
 
             bool inBounds;
 
-            foreach (Ship unit in selectableUnits)
+            foreach (BasicShip unit in selectableUnits)
             {
                 inBounds = selectionBounds.Contains(Camera.main.WorldToViewportPoint(unit.transform.position));
 

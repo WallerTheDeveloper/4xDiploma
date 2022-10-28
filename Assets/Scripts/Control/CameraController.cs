@@ -135,7 +135,7 @@ namespace Control
             //create plane to raycast to
             Plane plane = new Plane(Vector3.up, Vector3.zero);
         
-            if(plane.Raycast(GetMouseRay(), out float distance))
+            if (plane.Raycast(GetMouseRay(), out float distance))
             {
                 if (Mouse.current.middleButton.wasPressedThisFrame)
                     startDrag = GetMouseRay().GetPoint(distance);

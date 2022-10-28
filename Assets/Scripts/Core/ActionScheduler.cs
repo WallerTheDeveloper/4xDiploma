@@ -16,10 +16,5 @@ namespace Core
             }
             _currentAction = action;
         }
-
-        public void CancelCurrentAction()
-        {
-            PerformAction(null);
-        }
     }
 }
