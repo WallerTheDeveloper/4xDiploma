@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-namespace PlayerInteractable
+namespace PlayerInteractable.SpaceObjects
 {
     public abstract class Planet: MonoBehaviour
     {
-        public const int COLLIDER_RADIUS = 27;
+        public const int COLLIDER_RADIUS = 35;
     }
 }

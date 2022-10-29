@@ -2,7 +2,7 @@ using Attributes;
 using Core;
 using Movement;
 
-namespace Ships
+namespace PlayerInteractable.Constructions
 {
     public abstract class BasicShip : Mover, IFlyable
     {

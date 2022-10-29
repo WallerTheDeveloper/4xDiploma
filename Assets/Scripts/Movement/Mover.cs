@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using Core;
-using Ships;
+using PlayerInteractable.Constructions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Quaternion = UnityEngine.Quaternion;
@@ -35,11 +35,10 @@ namespace Movement
                 Globals.isFlyTriggered = false;
             }
             bool hasHit = Physics.Raycast(GetMouseRay, out var hit, Mathf.Infinity, Globals.PLANET_LAYER_MASK); //Raycasting only when object has layer name "Planet"
-            if (hasHit)
+            if (hasHit && hit.transform.CompareTag(Globals.activeObjectTag))
             {
                 PerformFlyAction(hit.transform);
             }
-            
         }
 
         public void PerformFlyAction(Transform destination)

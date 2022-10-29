@@ -1,106 +1,196 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6411147022955133181
+--- !u!1 &4071041982372421330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4067906562997457072}
+  - component: {fileID: 4036156139900486976}
+  - component: {fileID: 4048655920368995486}
+  - component: {fileID: 4120692735908690244}
+  m_Layer: 6
+  m_Name: Planet
+  m_TagString: Inactive Object
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4067906562997457072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4071041982372421330}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2754216283250333848}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4036156139900486976
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4071041982372421330}
+  m_Mesh: {fileID: 4300004, guid: 4375d80065c8dc74bba60eb936227d67, type: 3}
+--- !u!23 &4048655920368995486
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4071041982372421330}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 868044dcf60fdd341811f23c986eb879, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &4120692735908690244
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4071041982372421330}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4a824e8218271f4e95763277f4e0872, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &8416918368405181382
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1118798604859696, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1202375649479752, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1855073473284052, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
-      propertyPath: m_Name
-      value: Mineral Planet
-      objectReference: {fileID: 0}
-    - target: {fileID: 1855073473284052, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4648412045605558, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
+    - target: {fileID: 5977991620228533086, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4648412045605558, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
+    - target: {fileID: 5977991620228533086, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.04
+      value: 0.03
       objectReference: {fileID: 0}
-    - target: {fileID: 4648412045605558, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
+    - target: {fileID: 5977991620228533086, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.04
+      value: 0.03
       objectReference: {fileID: 0}
-    - target: {fileID: 4648412045605558, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
+    - target: {fileID: 5977991620228533086, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.04
+      value: 0.03
       objectReference: {fileID: 0}
-    - target: {fileID: 4648412045605558, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
+    - target: {fileID: 5977991620228533086, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.61
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4648412045605558, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
+    - target: {fileID: 5977991620228533086, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000084815
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4648412045605558, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
+    - target: {fileID: 5977991620228533086, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.24
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4648412045605558, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
+    - target: {fileID: 5977991620228533086, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4648412045605558, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
+    - target: {fileID: 5977991620228533086, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4648412045605558, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
+    - target: {fileID: 5977991620228533086, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4648412045605558, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
+    - target: {fileID: 5977991620228533086, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4648412045605558, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
+    - target: {fileID: 5977991620228533086, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4648412045605558, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
+    - target: {fileID: 5977991620228533086, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4648412045605558, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
+    - target: {fileID: 5977991620228533086, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 135620672113768274, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
-      propertyPath: m_Radius
-      value: 27
+    - target: {fileID: 7310623751456449235, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
+      propertyPath: m_Name
+      value: Mineral Planet
       objectReference: {fileID: 0}
-    - target: {fileID: 135620672113768274, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 7310623751456449235, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
+      propertyPath: m_TagString
+      value: Inactive Object
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
---- !u!1 &6412685042948210473 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
+--- !u!1 &1277451336272064789 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1855073473284052, guid: 8b670f55ada76fc40bb3ea2c52efe21a, type: 3}
-  m_PrefabInstance: {fileID: 6411147022955133181}
+  m_CorrespondingSourceObject: {fileID: 7310623751456449235, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
+  m_PrefabInstance: {fileID: 8416918368405181382}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8580277991886760012
+--- !u!4 &2754216283250333848 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5977991620228533086, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
+  m_PrefabInstance: {fileID: 8416918368405181382}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8063563473126901304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6412685042948210473}
+  m_GameObject: {fileID: 1277451336272064789}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0568bf81312c4b43a997e9ea216e08f, type: 3}

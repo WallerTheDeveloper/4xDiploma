@@ -1,5 +1,5 @@
 
-namespace PlayerInteractable
+namespace PlayerInteractable.SpaceObjects
 {
     public class Star : Planet
     {

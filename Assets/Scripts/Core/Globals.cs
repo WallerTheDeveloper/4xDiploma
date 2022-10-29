@@ -15,5 +15,8 @@ namespace Core
 
         public static bool isFlyTriggered = false;
 
+        public const string activeObjectTag = "Active Object";
+        public const string inActiveObjectTag = "Inactive Object";
+
     }
 }

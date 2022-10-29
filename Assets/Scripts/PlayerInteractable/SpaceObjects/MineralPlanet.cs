@@ -1,7 +1,4 @@
-
-using System;
-
-namespace PlayerInteractable
+namespace PlayerInteractable.SpaceObjects
 {
     public class MineralPlanet : Planet
     {
