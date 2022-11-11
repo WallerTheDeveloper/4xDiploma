@@ -5,6 +5,6 @@ namespace Races
 {
     public abstract class BaseRace
     {
-        // public ShipsData ShipsData { get; }
+        
     }
 }

@@ -13,7 +13,7 @@ namespace Core
         private void Start()
         {
             MoveCameraToChosenRaceShip();
-            Debug.Log("Game set up!");
+            EnableInputForChosenRaceShips();
         }
 
         private void MoveCameraToChosenRaceShip()
@@ -33,6 +33,10 @@ namespace Core
                 }
             }
         }
-        
+
+        private void EnableInputForChosenRaceShips()
+        {
+            
+        }
     }
 }
