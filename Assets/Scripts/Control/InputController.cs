@@ -6,7 +6,7 @@ using Movement;
 
 namespace Control
 {
-    public class PlayerController : MonoBehaviour
+    public class InputController : MonoBehaviour
     {
         private InputActionsAsset _inputActions;
         private bool _moveShouldContinue;

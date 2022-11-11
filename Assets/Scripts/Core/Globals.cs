@@ -9,14 +9,17 @@ namespace Core
         public static int PLANET_LAYER_MASK = 1 << 6; // Layer name: Planet
         public static int SHIP_LAYER_MASK = 1 << 7; // Layer name: Ship
         
-        public static List<UnitManager> SELECTED_UNITS = new List<UnitManager>();
-        
         public static bool isClickedOnSingleUnit = false;
-
         public static bool isFlyTriggered = false;
 
         public const string activeObjectTag = "Active Object";
         public const string inActiveObjectTag = "Inactive Object";
 
+        public class Scenes
+        {
+            public const string MAIN_MENU = "Main Menu Scene";
+        }
+
+        public static List<UnitManager> SELECTED_UNITS = new List<UnitManager>();
     }
 }

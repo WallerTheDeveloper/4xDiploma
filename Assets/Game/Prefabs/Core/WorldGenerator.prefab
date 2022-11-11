@@ -43,8 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 902925fbb811cb84f9c4a1caddbd66dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planets:
-  - {fileID: -7427363488199932600, guid: 85a75ced0429aca4c8bb9788bb3ccd9d, type: 3}
-  - {fileID: 8580277991886760012, guid: da75898a185df0147b34a33a31ca5844, type: 3}
-  - {fileID: -4313757516737712034, guid: fbb7dceca60d602488ed585f716b0a85, type: 3}
-  - {fileID: 217230211193599477, guid: 34724342a6b05864b9f2109d82f62dc7, type: 3}
+  shipsSpawnRadius: 8
+  planetsSpawnDensity: 1.7
+  _planetsData: {fileID: 11400000, guid: 749a909ca53fe404f900bd32126abb7e, type: 2}
+  _shipsData: {fileID: 11400000, guid: ed5dc6c333653ad40b76d2add3747cf3, type: 2}

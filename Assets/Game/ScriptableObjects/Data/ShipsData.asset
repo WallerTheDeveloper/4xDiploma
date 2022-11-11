@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a63fefd489c8945af6775533d7fb1b, type: 3}
+  m_Name: ShipsData
+  m_EditorClassIdentifier: 
+  data:
+  - shipTypes:
+    - {fileID: 1838331789966202968, guid: 9ccf9014a15f49e4ca066b81fc5df3eb, type: 3}
+    - {fileID: 869712447116214561, guid: 31209d180e5c03044a5ac34affce055a, type: 3}
+    - {fileID: 7281762562099770125, guid: b1f2cab6041e8b945b7af067aacde4b3, type: 3}
+    shipsPositions: []
+  - shipTypes:
+    - {fileID: 6069760225330032942, guid: b78db86985dd0fe4ba6e993cfe23491c, type: 3}
+    - {fileID: 2953336500791395941, guid: 8b70da8c4511a634984d897b1d632c3e, type: 3}
+    - {fileID: 1747349759524019590, guid: 022872975d9b2d24892a2bbdcaaf2f90, type: 3}
+    shipsPositions: []
+  - shipTypes:
+    - {fileID: 8621319566391121024, guid: e5efb1a2b8104234f9be353599821d63, type: 3}
+    - {fileID: 6368002387797734647, guid: 5cb085539d2bf2f4e85be2322ba8698e, type: 3}
+    - {fileID: 7052821010032543909, guid: 1e4eb64420cdfa04da4e1ff33efddec9, type: 3}
+    shipsPositions: []

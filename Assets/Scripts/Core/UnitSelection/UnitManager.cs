@@ -21,7 +21,7 @@ namespace Core.UnitSelection
             }
         }
         
-        void addPhysicsRaycaster() // Move to another file!
+        void addPhysicsRaycaster() // TODO: Move to another file! Name it PhysicsRaycasterProvider 
         {
             PhysicsRaycaster physicsRaycaster = FindObjectOfType<PhysicsRaycaster>();
             if (physicsRaycaster == null)

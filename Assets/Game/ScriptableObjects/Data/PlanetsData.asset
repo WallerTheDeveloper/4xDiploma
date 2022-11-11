@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784b4ea96d71dca40b0b99586eb8097b, type: 3}
+  m_Name: PlanetsData
+  m_EditorClassIdentifier: 
+  data:
+  - planetPrefab: {fileID: -8189739002616108534, guid: 7a238d5edd92456418921614be0640ba, type: 3}
+    spawnProbability: 15
+  - planetPrefab: {fileID: 8063563473126901304, guid: 0cbbda45ff80c6b47b212a5e82067757, type: 3}
+    spawnProbability: 60
+  - planetPrefab: {fileID: 351505514514247103, guid: d576112de0c9c554fb40fec8b3e8c82e, type: 3}
+    spawnProbability: 50
+  - planetPrefab: {fileID: -1223606425368263400, guid: 7cc7880b78c669a4597d3cfc6cade1ba, type: 3}
+    spawnProbability: 60

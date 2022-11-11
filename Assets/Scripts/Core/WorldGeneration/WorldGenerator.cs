@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Core.Data;
 using UnityEngine;
 using Core.Miscellaneous;
 using PlayerInteractable.SpaceObjects;
@@ -7,27 +9,9 @@ using PlayerInteractable.Constructions;
 using Random = UnityEngine.Random;
 
 namespace Core.WorldGeneration
-{
-
-    [Serializable]
-    public class PlanetTypes
+{ 
+    public class WorldGenerator : MonoBehaviour // TODO: ShipFactory, PlanetsFactory
     {
-        public Planet planetPrefab;
-        
-        [Range(0f, 100f)] public float spawnProbability = 100f;
-    }
-
-    [Serializable]
-    public class RaceShipsInfo
-    {
-        public BasicShip[] shipTypes;
-    }
-    
-    public class WorldGenerator : MonoBehaviour
-    {
-
-        [Header("Values")]
-        
         [SerializeField] 
         [Range(5f, 10f)] 
         private float shipsSpawnRadius = 5f;
@@ -35,22 +19,20 @@ namespace Core.WorldGeneration
         [SerializeField] 
         [Range(0.7f, 3f)] 
         private float planetsSpawnDensity = 1f;
-        
-        [Header("Objects")]
+
+        [SerializeField]
+        private PlanetsData _planetsData;
         
         [SerializeField]
-        private PlanetTypes[] planetsType;
-        
-        [SerializeField]
-        private RaceShipsInfo[] raceShipsInfo;
+        private ShipsData _shipsData;
         
         private const int SPAWN_ITERATIONS = 500;
        
-        private void Start()
+        private void Awake()
         {
             SpawnShipsInRandomPoints();
             GeneratePlanetsInRandomPoints();
-            
+            Debug.Log("World generated!");
         }
         private void GeneratePlanetsInRandomPoints()
         {
@@ -61,7 +43,7 @@ namespace Core.WorldGeneration
         }
         private void SpawnPlanetWithProbability()
         {
-            for (int i = 0; i < planetsType.Length; i++)
+            for (int i = 0; i < _planetsData.data.Length; i++)
             {
                 Vector3 randomPointAtMap = GenerateRandomPointAtMap();
                 
@@ -69,42 +51,50 @@ namespace Core.WorldGeneration
                 
                 float rnd = Random.Range(0.1f, 100);
 
-                if (rnd <= planetsType[i].spawnProbability)
+                if (rnd <= _planetsData.data[i].spawnProbability)
                 {
-                    Planet planet = planetsType[i].planetPrefab;
+                    Planet planet = _planetsData.data[i].planetPrefab;
                     Instantiate(
-                            planet, 
-                            randomPointAtMap, 
-                            Quaternion.identity,
-                            GameObject.FindGameObjectWithTag("Instantiated Planets").transform // to prevent editor littering
-                        );
+                        planet, 
+                        randomPointAtMap, 
+                        Quaternion.identity,
+                        GameObject.FindGameObjectWithTag("Instantiated Planets").transform // to prevent editor littering
+                    );
                     DisableSpaceObjectMeshRenderer(planet);
                 }
             }
         }
         private void SpawnShipsInRandomPoints()
         {
-            for (int i = 0; i < raceShipsInfo.Length; i++)
-            {              
+            for (int i = 0; i < _shipsData.data.Length; i++)
+            {
                 Vector3 randomPointAtMap = GenerateRandomPointAtMap();
                 
-                for (int j = 0; j < raceShipsInfo[i].shipTypes.Length; j++)
+                for (int j = 0; j < _shipsData.data[i].shipTypes.Length; j++)
                 {
-                    SpawnShip(randomPointAtMap, raceShipsInfo[i].shipTypes[j]);
+                    SpawnShip(randomPointAtMap, _shipsData.data[i].shipTypes[j], j);
                 }
             }
         }
-        private void SpawnShip(Vector3 randomPointAtMap, BasicShip currentShip)
+        private void SpawnShip(Vector3 randomPointAtMap, BasicShip currentShip, int shipNumber)
         {
             float randomPointInRadiusX = (Random.insideUnitCircle.normalized * shipsSpawnRadius).x;
             float randomPointInRadiusZ = (Random.insideUnitCircle.normalized * shipsSpawnRadius).y;
-                    
+            
+            Vector3 position = new Vector3(randomPointAtMap.x + randomPointInRadiusX, 0, randomPointAtMap.z + randomPointInRadiusZ);
+            
             Instantiate(
                 currentShip,
-                new Vector3(randomPointAtMap.x + randomPointInRadiusX, 0, randomPointAtMap.z + randomPointInRadiusZ),
-                Quaternion.identity); 
-        }
+                position,
+                Quaternion.identity);
 
+            if (_shipsData.data[shipNumber].shipsPositions.Count >= 3)
+            {
+                _shipsData.data[shipNumber].shipsPositions = new List<Vector3>();
+            }
+            _shipsData.data[shipNumber].shipsPositions.Add(position);
+            
+        }
         private Vector3 GenerateRandomPointAtMap()
         {
             return new Vector3(

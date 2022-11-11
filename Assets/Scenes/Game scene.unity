@@ -688,7 +688,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: 61.945, z: 0}
 --- !u!1 &179081014
 GameObject:
@@ -1369,82 +1369,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583044357}
   m_CullTransparentMesh: 1
---- !u!1 &596101281
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 596101284}
-  - component: {fileID: 596101283}
-  - component: {fileID: 596101282}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &596101282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 596101281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MoveRepeatDelay: 0.5
-  m_MoveRepeatRate: 0.1
-  m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 2064916234097673511, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: -1967631576421560919, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 8056856818456041789, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: 3279352641294131588, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: 3837173908680883260, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
-  m_CursorLockBehavior: 0
---- !u!114 &596101283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 596101281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &596101284
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 596101281}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.49}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &645384379
 GameObject:
   m_ObjectHideFlags: 0
@@ -3625,405 +3549,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorldGenerator
       objectReference: {fileID: 0}
-    - target: {fileID: 2258650058498951, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: spawnDensity
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipsSpawnRadius
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsSpawnDensity
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: initialWarshipQuantity
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[0]
-      value: 
-      objectReference: {fileID: -7427363488199932600, guid: 85a75ced0429aca4c8bb9788bb3ccd9d, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[1]
-      value: 
-      objectReference: {fileID: 8580277991886760012, guid: da75898a185df0147b34a33a31ca5844, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[2]
-      value: 
-      objectReference: {fileID: -4313757516737712034, guid: fbb7dceca60d602488ed585f716b0a85, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[3]
-      value: 
-      objectReference: {fileID: 217230211193599477, guid: 34724342a6b05864b9f2109d82f62dc7, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[0].NAME
-      value: Star
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[0].Name
-      value: Star
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[1].NAME
-      value: Mineral
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[1].Name
-      value: Min
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[2].NAME
-      value: Gas
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[2].Name
-      value: Gas
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[3].NAME
-      value: Crystal
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[3].Name
-      value: Cry
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[0].shipPrefab
-      value: 
-      objectReference: {fileID: -9038609489212857398, guid: ec7b5921cb7d9ac4399a7c618d0fbeaa, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[1].shipPrefab
-      value: 
-      objectReference: {fileID: -6513855845273605298, guid: 4274380efbb5164468383d3bd6aee35e, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[2].shipPrefab
-      value: 
-      objectReference: {fileID: -302330109873651966, guid: 19fbbb0ec004e2d49af1713fe60fcdb3, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[0].planetPrefab
-      value: 
-      objectReference: {fileID: -8189739002616108534, guid: 7a238d5edd92456418921614be0640ba, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[1].planetPrefab
-      value: 
-      objectReference: {fileID: 8063563473126901304, guid: 0cbbda45ff80c6b47b212a5e82067757, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[2].planetPrefab
-      value: 
-      objectReference: {fileID: 351505514514247103, guid: d576112de0c9c554fb40fec8b3e8c82e, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[3].planetPrefab
-      value: 
-      objectReference: {fileID: -1223606425368263400, guid: 7cc7880b78c669a4597d3cfc6cade1ba, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[0].SpawnProbability
-      value: 8.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[0].spawnProbability
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[1].spawnProbability
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[2].spawnProbability
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: planetsType.Array.data[3].spawnProbability
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[0].shipPrefab.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[1].shipPrefab.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[2].shipPrefab.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[0].initialWarshipQuantity
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[0].shipPrefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[1].initialWarshipQuantity
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[1].shipPrefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[2].initialWarshipQuantity
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[2].shipPrefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[0].shipTypes.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[1].shipTypes.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[2].shipTypes.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[0].shipPrefab.Array.data[0]
-      value: 
-      objectReference: {fileID: 6069760225330032942, guid: b78db86985dd0fe4ba6e993cfe23491c, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[0].shipPrefab.Array.data[1]
-      value: 
-      objectReference: {fileID: 194071731857749040, guid: 8b70da8c4511a634984d897b1d632c3e, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[0].shipPrefab.Array.data[2]
-      value: 
-      objectReference: {fileID: 1747349759524019590, guid: 022872975d9b2d24892a2bbdcaaf2f90, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[1].shipPrefab.Array.data[0]
-      value: 
-      objectReference: {fileID: 8621319566391121024, guid: e5efb1a2b8104234f9be353599821d63, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[1].shipPrefab.Array.data[1]
-      value: 
-      objectReference: {fileID: 8219791419448706722, guid: 5cb085539d2bf2f4e85be2322ba8698e, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[1].shipPrefab.Array.data[2]
-      value: 
-      objectReference: {fileID: 7052821010032543909, guid: 1e4eb64420cdfa04da4e1ff33efddec9, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[2].shipPrefab.Array.data[0]
-      value: 
-      objectReference: {fileID: 1838331789966202968, guid: 9ccf9014a15f49e4ca066b81fc5df3eb, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[2].shipPrefab.Array.data[1]
-      value: 
-      objectReference: {fileID: 2764354804889662324, guid: 31209d180e5c03044a5ac34affce055a, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[2].shipPrefab.Array.data[2]
-      value: 
-      objectReference: {fileID: 7281762562099770125, guid: b1f2cab6041e8b945b7af067aacde4b3, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[0].initialMiningShipQuantity
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[0].shipPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 6069760225330032942, guid: b78db86985dd0fe4ba6e993cfe23491c, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[0].shipPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 194071731857749040, guid: 8b70da8c4511a634984d897b1d632c3e, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[0].shipPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 1747349759524019590, guid: 022872975d9b2d24892a2bbdcaaf2f90, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[1].initialMiningShipQuantity
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[1].shipPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 8621319566391121024, guid: e5efb1a2b8104234f9be353599821d63, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[1].shipPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 8219791419448706722, guid: 5cb085539d2bf2f4e85be2322ba8698e, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[1].shipPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 7052821010032543909, guid: 1e4eb64420cdfa04da4e1ff33efddec9, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[2].initialMiningShipQuantity
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[2].shipPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 1838331789966202968, guid: 9ccf9014a15f49e4ca066b81fc5df3eb, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[2].shipPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 2764354804889662324, guid: 31209d180e5c03044a5ac34affce055a, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[2].shipPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 7281762562099770125, guid: b1f2cab6041e8b945b7af067aacde4b3, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[0].initialWarshipQuantity
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[0].shipPrefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[1].initialWarshipQuantity
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[1].shipPrefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[2].initialWarshipQuantity
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[2].shipPrefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[0].shipTypes.Array.data[0]
-      value: 
-      objectReference: {fileID: 6069760225330032942, guid: b78db86985dd0fe4ba6e993cfe23491c, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[0].shipTypes.Array.data[1]
-      value: 
-      objectReference: {fileID: 2953336500791395941, guid: 8b70da8c4511a634984d897b1d632c3e, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[0].shipTypes.Array.data[2]
-      value: 
-      objectReference: {fileID: 1747349759524019590, guid: 022872975d9b2d24892a2bbdcaaf2f90, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[1].shipTypes.Array.data[0]
-      value: 
-      objectReference: {fileID: 8621319566391121024, guid: e5efb1a2b8104234f9be353599821d63, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[1].shipTypes.Array.data[1]
-      value: 
-      objectReference: {fileID: 6368002387797734647, guid: 5cb085539d2bf2f4e85be2322ba8698e, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[1].shipTypes.Array.data[2]
-      value: 
-      objectReference: {fileID: 7052821010032543909, guid: 1e4eb64420cdfa04da4e1ff33efddec9, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[2].shipTypes.Array.data[0]
-      value: 
-      objectReference: {fileID: 1838331789966202968, guid: 9ccf9014a15f49e4ca066b81fc5df3eb, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[2].shipTypes.Array.data[1]
-      value: 
-      objectReference: {fileID: 869712447116214561, guid: 31209d180e5c03044a5ac34affce055a, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[2].shipTypes.Array.data[2]
-      value: 
-      objectReference: {fileID: 7281762562099770125, guid: b1f2cab6041e8b945b7af067aacde4b3, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[0].initialMiningShipQuantity
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[0].shipPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 6069760225330032942, guid: b78db86985dd0fe4ba6e993cfe23491c, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[0].shipPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 194071731857749040, guid: 8b70da8c4511a634984d897b1d632c3e, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[0].shipPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 1747349759524019590, guid: 022872975d9b2d24892a2bbdcaaf2f90, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[1].initialMiningShipQuantity
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[1].shipPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 8621319566391121024, guid: e5efb1a2b8104234f9be353599821d63, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[1].shipPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 8219791419448706722, guid: 5cb085539d2bf2f4e85be2322ba8698e, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[1].shipPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 7052821010032543909, guid: 1e4eb64420cdfa04da4e1ff33efddec9, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[2].initialMiningShipQuantity
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[2].shipPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 1838331789966202968, guid: 9ccf9014a15f49e4ca066b81fc5df3eb, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[2].shipPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 2764354804889662324, guid: 31209d180e5c03044a5ac34affce055a, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[2].shipPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 7281762562099770125, guid: b1f2cab6041e8b945b7af067aacde4b3, type: 3}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[0].initialEngineeringShipQuantity
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[1].initialEngineeringShipQuantity
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: shipTypes.Array.data[2].initialEngineeringShipQuantity
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[0].initialEngineeringShipQuantity
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[1].initialEngineeringShipQuantity
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
-      propertyPath: raceShipsInfo.Array.data[2].initialEngineeringShipQuantity
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 2258650058499001, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2258650058499001, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4074,29 +3602,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 554697631674730989, guid: 4beb7da8ea7ed1c48aed71e34ebe2429, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 554697631674730989, guid: 4beb7da8ea7ed1c48aed71e34ebe2429, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 554697631674730989, guid: 4beb7da8ea7ed1c48aed71e34ebe2429, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 554697631764614888, guid: 4beb7da8ea7ed1c48aed71e34ebe2429, type: 3}
-      propertyPath: m_Lens.m_SensorSize.x
-      value: 2.291866
-      objectReference: {fileID: 0}
-    - target: {fileID: 554697632209190833, guid: 4beb7da8ea7ed1c48aed71e34ebe2429, type: 3}
-      propertyPath: minHeight
-      value: 17
-      objectReference: {fileID: 0}
     - target: {fileID: 554697632209190834, guid: 4beb7da8ea7ed1c48aed71e34ebe2429, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 554697632209190834, guid: 4beb7da8ea7ed1c48aed71e34ebe2429, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4144,3 +3652,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4beb7da8ea7ed1c48aed71e34ebe2429, type: 3}
+--- !u!1001 &4922555566513540271
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4922555566247465282, guid: 872370a5962f13441b87d5fa2eb677b1, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922555566247465282, guid: 872370a5962f13441b87d5fa2eb677b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922555566247465282, guid: 872370a5962f13441b87d5fa2eb677b1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922555566247465282, guid: 872370a5962f13441b87d5fa2eb677b1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922555566247465282, guid: 872370a5962f13441b87d5fa2eb677b1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922555566247465282, guid: 872370a5962f13441b87d5fa2eb677b1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922555566247465282, guid: 872370a5962f13441b87d5fa2eb677b1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922555566247465282, guid: 872370a5962f13441b87d5fa2eb677b1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922555566247465282, guid: 872370a5962f13441b87d5fa2eb677b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922555566247465282, guid: 872370a5962f13441b87d5fa2eb677b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922555566247465282, guid: 872370a5962f13441b87d5fa2eb677b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922555566247465283, guid: 872370a5962f13441b87d5fa2eb677b1, type: 3}
+      propertyPath: m_Name
+      value: InitialLoadSetup
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 872370a5962f13441b87d5fa2eb677b1, type: 3}

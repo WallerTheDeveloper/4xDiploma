@@ -285,7 +285,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 3.3263888, y: 1}
+    m_SensorSize: {x: 1.5133438, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -341,17 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2064584ef730ab54cbc78e7473183f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
-  acceleration: 5
-  damping: 15
-  stepSize: 2
-  zoomDampening: 10
-  minHeight: 5
-  maxHeight: 30
-  zoomSpeed: 2
-  maxRotationSpeed: 0.1
-  edgeTolerance: 0.01
-  useEdgeScreen: 0
+  CameraData: {fileID: 11400000, guid: 2810d7eea02192c47a92b25d3d3aa65e, type: 2}
 --- !u!54 &554697632209190839
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -1,72 +1,47 @@
-using System;
 using Attributes;
 using Cinemachine;
+using Core.Data;
 using Core.Miscellaneous;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Timeline;
 
 namespace Control
 {
     public class CameraController : MonoBehaviour, IBoundarySensitive
     {
+        [SerializeField] 
+        private CameraData CameraData;
+        
         private InputActionsAsset cameraActions;
         private InputAction movement;
-        private Transform _cameraTransform;
 
-        [SerializeField]
-        private float maxSpeed = 5f;
-        private float speed;
-        [SerializeField]
-        private float acceleration = 10f;
-        [SerializeField]
-        private float damping = 15f;
-
-        [SerializeField]
-        private float stepSize = 2f;
-        [SerializeField]
-        private float zoomDampening = 7.5f;
-        [SerializeField]
-        private float minHeight = 5f;
-        [SerializeField]
-        private float maxHeight = 50f;
-        [SerializeField]
-        private float zoomSpeed = 2f;
-
-        [SerializeField]
-        private float maxRotationSpeed = 1f;
-
-        [SerializeField]
-        [Range(0f,0.1f)]
-        private float edgeTolerance = 0.05f;
-
-        [SerializeField] private bool useEdgeScreen = true;
-        
         //value set in various functions 
         //used to update the position of the camera base object.
         private Vector3 targetPosition;
 
-        private float zoomHeight;
+        private float zoomHeight;        
+        private float speed;
 
         //used to track and maintain velocity w/o a rigidbody
         private Vector3 horizontalVelocity;
         private Vector3 lastPosition;
 
         //tracks where the dragging action started
-        Vector3 startDrag;
-
+        Vector3 startDrag;        
+        
         private void Awake()
         {
             cameraActions = new InputActionsAsset();
-            _cameraTransform = GetComponentInChildren<CinemachineVirtualCamera>().transform;
+            
+            CameraData.CameraTransform = GetComponentInChildren<CinemachineVirtualCamera>().transform;
         }
 
         private void OnEnable()
         {
-            zoomHeight = _cameraTransform.localPosition.y;
-            _cameraTransform.LookAt(this.transform);
+            zoomHeight = CameraData.CameraTransform.localPosition.y;
+            CameraData.CameraTransform.LookAt(transform);
 
-            lastPosition = this.transform.position;
+            lastPosition = transform.position;
 
             movement = cameraActions.Camera.Movement;
             cameraActions.Camera.RotateCamera.performed += RotateCamera;
@@ -85,20 +60,20 @@ namespace Control
         {
             //inputs
             GetKeyboardMovement();
-            
-            if(useEdgeScreen)
+
+            if (CameraData.useEdgeScreen)
                 CheckMouseAtScreenEdge();
-                
+
             DragCamera();
-    
+
             //move base and camera objects
             UpdateVelocity();
             UpdateBasePosition();
             UpdateCameraPosition();
-            
+
             DeclareBoundaries();
         }
-        
+
         public void DeclareBoundaries()
         {
             //Map Boundaries = 35 x 35
@@ -111,9 +86,9 @@ namespace Control
 
         private void UpdateVelocity()
         {
-            horizontalVelocity = (this.transform.position - lastPosition) / Time.deltaTime;
+            horizontalVelocity = (transform.position - lastPosition) / Time.deltaTime;
             horizontalVelocity.y = 0f;
-            lastPosition = this.transform.position;
+            lastPosition = transform.position;
         }
 
         private void GetKeyboardMovement()
@@ -151,15 +126,15 @@ namespace Control
             Vector3 moveDirection = Vector3.zero;
 
             //horizontal scrolling
-            if (mousePosition.x < edgeTolerance * Screen.width)
+            if (mousePosition.x <CameraData.edgeTolerance * Screen.width)
                 moveDirection += -GetCameraRight();
-            else if (mousePosition.x > (1f - edgeTolerance) * Screen.width)
+            else if (mousePosition.x > (1f - CameraData.edgeTolerance) * Screen.width)
                 moveDirection += GetCameraRight();
 
             //vertical scrolling
-            if (mousePosition.y < edgeTolerance * Screen.height)
+            if (mousePosition.y < CameraData.edgeTolerance * Screen.height)
                 moveDirection += -GetCameraForward();
-            else if (mousePosition.y > (1f - edgeTolerance) * Screen.height)
+            else if (mousePosition.y > (1f - CameraData.edgeTolerance) * Screen.height)
                 moveDirection += GetCameraForward();
 
             targetPosition += moveDirection;
@@ -170,13 +145,13 @@ namespace Control
             if (targetPosition.sqrMagnitude > 0.1f)
             {
                 //create a ramp up or acceleration
-                speed = Mathf.Lerp(speed, maxSpeed, Time.deltaTime * acceleration);
+                speed = Mathf.Lerp(speed, CameraData.maxSpeed, Time.deltaTime * CameraData.acceleration);
                 transform.position += targetPosition * speed * Time.deltaTime;
             }
             else
             {
                 //create smooth slow down
-                horizontalVelocity = Vector3.Lerp(horizontalVelocity, Vector3.zero, Time.deltaTime * damping);
+                horizontalVelocity = Vector3.Lerp(horizontalVelocity, Vector3.zero, Time.deltaTime * CameraData.damping);
                 transform.position += horizontalVelocity * Time.deltaTime;
             }
 
@@ -190,24 +165,24 @@ namespace Control
 
             if (Mathf.Abs(inputValue) > 0.1f)
             {
-                zoomHeight = _cameraTransform.localPosition.y + inputValue * stepSize;
+                zoomHeight = CameraData.CameraTransform.localPosition.y + inputValue * CameraData.stepSize;
 
-                if (zoomHeight < minHeight)
-                    zoomHeight = minHeight;
-                else if (zoomHeight > maxHeight)
-                    zoomHeight = maxHeight;
+                if (zoomHeight < CameraData.minHeight)
+                    zoomHeight = CameraData.minHeight;
+                else if (zoomHeight > CameraData.maxHeight)
+                    zoomHeight = CameraData.maxHeight;
             }
         }
 
         private void UpdateCameraPosition()
         {
             //set zoom target
-             Vector3 zoomTarget = new Vector3(_cameraTransform.localPosition.x, zoomHeight, _cameraTransform.localPosition.z);
+             Vector3 zoomTarget = new Vector3(CameraData.CameraTransform.localPosition.x, zoomHeight, CameraData.CameraTransform.localPosition.z);
             //add vector for forward/backward zoom
-            zoomTarget -= zoomSpeed * (zoomHeight - _cameraTransform.localPosition.y) * Vector3.forward;
+            zoomTarget -= CameraData.zoomSpeed * (zoomHeight - CameraData.CameraTransform.localPosition.y) * Vector3.forward;
 
-            _cameraTransform.localPosition = Vector3.Lerp(_cameraTransform.localPosition, zoomTarget, Time.deltaTime * zoomDampening);
-            _cameraTransform.LookAt(this.transform);
+            CameraData.CameraTransform.localPosition = Vector3.Lerp(CameraData.CameraTransform.localPosition, zoomTarget, Time.deltaTime * CameraData.zoomDampening);
+            CameraData.CameraTransform.LookAt(this.transform);
         }
      
         private void RotateCamera(InputAction.CallbackContext obj)
@@ -216,13 +191,13 @@ namespace Control
                 return;
 
             float inputValue = obj.ReadValue<Vector2>().x;
-            transform.rotation = Quaternion.Euler(0f, inputValue * maxRotationSpeed + transform.rotation.eulerAngles.y, 0f);
+            transform.rotation = Quaternion.Euler(0f, inputValue * CameraData.maxRotationSpeed + transform.rotation.eulerAngles.y, 0f);
         }
 
         //gets the horizontal forward vector of the camera
         private Vector3 GetCameraForward()
         {
-            Vector3 forward = _cameraTransform.forward;
+            Vector3 forward = CameraData.CameraTransform.forward;
             forward.y = 0f;
             return forward;
         }
@@ -230,12 +205,16 @@ namespace Control
         //gets the horizontal right vector of the camera
         private Vector3 GetCameraRight()
         {
-            Vector3 right = _cameraTransform.right;
+            Vector3 right = CameraData.CameraTransform.right;
             right.y = 0f;
             return right;
         }
 
-        private static Ray GetMouseRay()
+        // private static Ray GetMouseRay()
+        // {
+        //     return Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        // }
+        private Ray GetMouseRay()
         {
             return Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         }
