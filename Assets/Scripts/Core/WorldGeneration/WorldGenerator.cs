@@ -1,11 +1,10 @@
-using System;
-using System.Collections.Generic;
 using Core.Data;
 using UnityEngine;
 using Core.Miscellaneous;
+using Core.RaceChoice;
 using PlayerInteractable.SpaceObjects;
 using PlayerInteractable.Constructions;
-
+using UI.MenuUI;
 using Random = UnityEngine.Random;
 
 namespace Core.WorldGeneration
@@ -20,19 +19,53 @@ namespace Core.WorldGeneration
         [Range(0.7f, 3f)] 
         private float planetsSpawnDensity = 1f;
 
-        [SerializeField]
         private PlanetsData _planetsData;
-        
-        [SerializeField]
         private ShipsData _shipsData;
+        private ShipsData _aiShipsData;
+        private ConstructionSpawner _constructionSpawner;
+        private RaceChoiceController _raceChoiceController;
         
         private const int SPAWN_ITERATIONS = 500;
-       
-        private void Awake()
+        
+        public void Init(ShipsData shipsData, ShipsData aiShipsData, ConstructionSpawner constructionSpawner, PlanetsData planetsData, RaceChoiceController raceChoiceController)
         {
+            _shipsData = shipsData;
+            _aiShipsData = aiShipsData;
+            _constructionSpawner = constructionSpawner;
+            _planetsData = planetsData;
+            _raceChoiceController = raceChoiceController;
+            
             SpawnShipsInRandomPoints();
             GeneratePlanetsInRandomPoints();
-            Debug.Log("World generated!");
+        }
+        private void SpawnShipsInRandomPoints()
+        {
+            //Spawn Player driven ships
+            for (int i = 0; i < _shipsData.data.Length; i++)
+            {
+                Vector3 randomPointAtMap = GenerateRandomPointAtMap();
+
+                for (int j = 0; j < _shipsData.data[i].shipTypes.Length; j++)
+                {
+                    if (_shipsData.data[i].RaceTypes == _raceChoiceController.ChosenRace)
+                    {
+                        _constructionSpawner.SpawnShip(randomPointAtMap, _shipsData.data[i].shipTypes[j], shipsSpawnRadius, out Vector3 shipNewPosition);
+                        _shipsData.data[j].ShipsPositions.Add(shipNewPosition);
+                    }
+                }
+            }
+            // Spawn AI driven ships
+            for (int i = 0; i < _aiShipsData.data.Length; i++)
+            {
+                Vector3 randomPointAtMap = GenerateRandomPointAtMap();
+                for (int j = 0; j < _aiShipsData.data[i].shipTypes.Length; j++)
+                {
+                    if (_aiShipsData.data[i].RaceTypes != _raceChoiceController.ChosenRace)
+                    {
+                        _constructionSpawner.SpawnShip(randomPointAtMap, _aiShipsData.data[i].shipTypes[j], shipsSpawnRadius, out Vector3 shipNewPosition);
+                    }
+                }
+            }
         }
         private void GeneratePlanetsInRandomPoints()
         {
@@ -46,8 +79,13 @@ namespace Core.WorldGeneration
             for (int i = 0; i < _planetsData.data.Length; i++)
             {
                 Vector3 randomPointAtMap = GenerateRandomPointAtMap();
+
+                bool checkObjectsInRadius = Physics.CheckSphere(randomPointAtMap, Planet.COLLIDER_RADIUS / planetsSpawnDensity);
                 
-                if (Physics.CheckSphere(randomPointAtMap, Planet.COLLIDER_RADIUS / planetsSpawnDensity)) continue;
+                if (checkObjectsInRadius)
+                {
+                    continue;
+                }
                 
                 float rnd = Random.Range(0.1f, 100);
 
@@ -64,37 +102,6 @@ namespace Core.WorldGeneration
                 }
             }
         }
-        private void SpawnShipsInRandomPoints()
-        {
-            for (int i = 0; i < _shipsData.data.Length; i++)
-            {
-                Vector3 randomPointAtMap = GenerateRandomPointAtMap();
-                
-                for (int j = 0; j < _shipsData.data[i].shipTypes.Length; j++)
-                {
-                    SpawnShip(randomPointAtMap, _shipsData.data[i].shipTypes[j], j);
-                }
-            }
-        }
-        private void SpawnShip(Vector3 randomPointAtMap, BasicShip currentShip, int shipNumber)
-        {
-            float randomPointInRadiusX = (Random.insideUnitCircle.normalized * shipsSpawnRadius).x;
-            float randomPointInRadiusZ = (Random.insideUnitCircle.normalized * shipsSpawnRadius).y;
-            
-            Vector3 position = new Vector3(randomPointAtMap.x + randomPointInRadiusX, 0, randomPointAtMap.z + randomPointInRadiusZ);
-            
-            Instantiate(
-                currentShip,
-                position,
-                Quaternion.identity);
-
-            if (_shipsData.data[shipNumber].shipsPositions.Count >= 3)
-            {
-                _shipsData.data[shipNumber].shipsPositions = new List<Vector3>();
-            }
-            _shipsData.data[shipNumber].shipsPositions.Add(position);
-            
-        }
         private Vector3 GenerateRandomPointAtMap()
         {
             return new Vector3(
@@ -110,7 +117,7 @@ namespace Core.WorldGeneration
             if (childMesh != null)
             {
                 childMesh.enabled = false;
-                planet.gameObject.tag = Globals.inActiveObjectTag;
+                planet.gameObject.tag = Globals.Tags.inActiveObjectTag;
             }
         }
 

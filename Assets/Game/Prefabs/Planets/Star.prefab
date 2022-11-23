@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4551906230213275654}
   m_Layer: 6
   m_Name: Globe
-  m_TagString: Inactive Object
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,6 +151,10 @@ PrefabInstance:
     - target: {fileID: 7310623751456449235, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_Name
       value: Star
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310623751456449235, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7310623751456449235, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_IsActive

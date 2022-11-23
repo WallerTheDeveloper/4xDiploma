@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using Core.RaceChoice;
+using Loading;
 using Races;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,8 +15,6 @@ namespace UI.MenuUI
         [SerializeField] private Button _fungoidRaceButton;
         [SerializeField] private Button _machineRaceButton;
         [SerializeField] private Button _backButton;
-        
-        private const byte GAME_SCENE_INDEX = 1;
         public static event Action<RaceTypes> OnRaceChoice;
         public override void Init()
         {
@@ -23,23 +23,26 @@ namespace UI.MenuUI
             _machineRaceButton.onClick.AddListener(() => LoadAsMachineRace());
             _backButton.onClick.AddListener((() => MenuViewManager.MenuViewManagerInstance.ShowPrevious()));
         }
-
+        private void LoadNewGame()
+        {
+            var operations = new Queue<ILoadingOperation>();
+            operations.Enqueue(new NewGameLoadingOperation());
+            ProjectContext.Instance.LoadingScreenProvider.LoadAndDestroy(operations);
+        }
         private void LoadAsHumanRace()
         {
-            SceneManager.LoadScene(GAME_SCENE_INDEX);
             OnRaceChoice?.Invoke(RaceTypes.HumanRace);
+            LoadNewGame();
         }
-        
         private void LoadAsFungoidRace()
         {
-            SceneManager.LoadScene(GAME_SCENE_INDEX);
             OnRaceChoice?.Invoke(RaceTypes.FungoidRace);
+            LoadNewGame();
         }
-        
         private void LoadAsMachineRace()
         {
-            SceneManager.LoadScene(GAME_SCENE_INDEX);
             OnRaceChoice?.Invoke(RaceTypes.MachineRace);
+            LoadNewGame();
         }
     }
 }

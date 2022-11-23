@@ -1,17 +1,9 @@
-using Attributes;
-using Core;
 using Movement;
-using UnityEngine;
+using Races;
 
 namespace PlayerInteractable.Constructions
 {
-    public abstract class BasicShip : Mover, IFlyable
+    public abstract class BasicShip: Mover
     {
-        public void Fly()
-        {
-            Globals.isFlyTriggered = true;
-            StartCoroutine(SmoothRotate());
-            StartCoroutine(CalculateMovement());
-        }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using Core;
-using PlayerInteractable.Constructions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Quaternion = UnityEngine.Quaternion;
@@ -17,30 +16,21 @@ namespace Movement
             
         private Quaternion _rotation;
         private Transform _currentTargetLocation;
-
-        private BasicShip _basicShip;
-        
         private static Ray GetMouseRay => Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-
-        private void Awake()
-        {
-            _basicShip = GetComponent<BasicShip>();
-        }
 
         public void InteractWithMovement()
         {
-            if (Globals.isFlyTriggered)
+            if (Globals.Bools.isFlyTriggered)
             {
                 StopAllCoroutines();
-                Globals.isFlyTriggered = false;
+                Globals.Bools.isFlyTriggered = false;
             }
-            bool hasHit = Physics.Raycast(GetMouseRay, out var hit, Mathf.Infinity, Globals.PLANET_LAYER_MASK); //Raycasting only when object has layer name "Planet"
-            if (hasHit && hit.transform.CompareTag(Globals.activeObjectTag))
+            bool hasHit = Physics.Raycast(GetMouseRay, out var hit, Mathf.Infinity, Globals.Layers.PLANET_LAYER_MASK); //Raycasting only when object has layer name "Planet"
+            if (hasHit && hit.transform.CompareTag(Globals.Tags.activeObjectTag))
             {
                 PerformFlyAction(hit.transform);
             }
         }
-
         public void PerformFlyAction(Transform destination)
         {
             if (TryGetComponent(out ActionScheduler actionScheduler))
@@ -49,15 +39,19 @@ namespace Movement
             }
             _currentTargetLocation = destination;
 
-            _basicShip.Fly();
+            Fly();
         }
-
         public void Cancel()
         {
             _speed = 0;
         }
-        
-        protected IEnumerator CalculateMovement()
+        public void Fly()
+        {
+            Globals.Bools.isFlyTriggered = true;
+            StartCoroutine(SmoothRotate());
+            StartCoroutine(CalculateMovement());
+        }
+        private IEnumerator CalculateMovement()
         {
             while (Vector3.Distance(transform.position, _currentTargetLocation.transform.position) > _targetDistance)
             {
@@ -65,8 +59,7 @@ namespace Movement
                 yield return null;
             }
         }
-        
-        protected IEnumerator SmoothRotate()
+        private IEnumerator SmoothRotate()
         {
             Vector3 direction = (_currentTargetLocation.transform.position - transform.position).normalized;
             _rotation = Quaternion.LookRotation(direction);

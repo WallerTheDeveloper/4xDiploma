@@ -45,5 +45,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipsSpawnRadius: 8
   planetsSpawnDensity: 1.7
-  _planetsData: {fileID: 11400000, guid: 749a909ca53fe404f900bd32126abb7e, type: 2}
-  _shipsData: {fileID: 11400000, guid: ed5dc6c333653ad40b76d2add3747cf3, type: 2}

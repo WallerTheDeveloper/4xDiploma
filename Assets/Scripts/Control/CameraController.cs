@@ -1,5 +1,6 @@
 using Attributes;
 using Cinemachine;
+using Core;
 using Core.Data;
 using Core.Miscellaneous;
 using UnityEngine;
@@ -41,8 +42,9 @@ namespace Control
             zoomHeight = CameraData.CameraTransform.localPosition.y;
             CameraData.CameraTransform.LookAt(transform);
 
-            lastPosition = transform.position;
-
+            // lastPosition = transform.position;
+            lastPosition = CameraData.CameraTransform.position;
+            
             movement = cameraActions.Camera.Movement;
             cameraActions.Camera.RotateCamera.performed += RotateCamera;
             cameraActions.Camera.ZoomCamera.performed += ZoomCamera;

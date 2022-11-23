@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Loading;
 using UnityEngine;
 
@@ -18,6 +15,5 @@ public class ProjectContext : MonoBehaviour
     public void Initialize()
     {
         LoadingScreenProvider = new LoadingScreenProvider();
-        
     }
 }

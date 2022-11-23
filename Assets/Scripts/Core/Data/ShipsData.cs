@@ -1,6 +1,7 @@
-using System;
 using System.Collections.Generic;
+using System.IO;
 using PlayerInteractable.Constructions;
+using Races;
 using UnityEngine;
 
 namespace Core.Data
@@ -11,12 +12,11 @@ namespace Core.Data
         [System.Serializable]
         public class Data
         {
+            public RaceTypes RaceTypes;
             public BasicShip[] shipTypes;
-            public List<Vector3> shipsPositions = new List<Vector3>(3);
+            public List<Vector3> ShipsPositions = new List<Vector3>();
         }
-
         
-
         [SerializeField]
         public Data[] data;
     }

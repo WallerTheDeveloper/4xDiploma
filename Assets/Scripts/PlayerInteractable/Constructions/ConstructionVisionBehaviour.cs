@@ -23,13 +23,8 @@ public class ConstructionVisionBehaviour : MonoBehaviour
             if (childMesh != null)
             {
                 childMesh.enabled = true;
-                collider.gameObject.tag = Globals.activeObjectTag;
+                collider.gameObject.tag = Globals.Tags.activeObjectTag;
             }
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, _visionRadius);
     }
 }

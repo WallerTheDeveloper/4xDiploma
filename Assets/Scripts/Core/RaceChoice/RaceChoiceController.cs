@@ -16,9 +16,11 @@ namespace Core.RaceChoice
             Enum.GetValues(typeof(RaceTypes))
                 .Cast<RaceTypes>()
                 .ToList(); // eventually move to another script (RaceManager?)
+
         private void OnEnable()
         {
             ChooseRaceMenuView.OnRaceChoice += HandleRaceChoice;
+            Debug.Log("OnEnableRaceChoiceController");
         }
 
         private void HandleRaceChoice(RaceTypes race)

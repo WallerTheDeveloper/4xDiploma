@@ -11,8 +11,11 @@ namespace Control
         private InputActionsAsset _inputActions;
         private bool _moveShouldContinue;
         private bool _moveHasStarted;
+        private Mover _mover;
+        
         private void Awake()
         {
+            _mover = GetComponent<Mover>();
             _inputActions = new InputActionsAsset();
         }
         
@@ -61,7 +64,7 @@ namespace Control
             _moveHasStarted = true;
             if (_moveShouldContinue && _moveHasStarted)
             {
-;               GetComponent<Mover>().InteractWithMovement();
+               _mover.InteractWithMovement();
             }
         }
         private void OnClickStarted(InputAction.CallbackContext context) {

@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.coffee.ui-effect": {
+      "version": "https://github.com/mob-sakai/UIEffect.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "b43e40508b167d143330d8b9eff0d5c9965cdf3c"
+    },
     "com.cysharp.unitask": {
       "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
       "depth": 0,
@@ -78,15 +85,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.probuilder": {
-      "version": "4.5.2",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.settings-manager": "1.0.3"
-      },
-      "url": "https://packages.unity.com"
-    },
     "com.unity.scriptablebuildpipeline": {
       "version": "1.19.2",
       "depth": 1,
@@ -101,13 +99,6 @@
       "dependencies": {
         "com.unity.modules.unitywebrequest": "1.0.0"
       },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.settings-manager": {
-      "version": "1.0.3",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
