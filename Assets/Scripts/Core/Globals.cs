@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Numerics;
-using Core.UnitSelection;
-
-namespace Core
+﻿namespace Core
 {
     public class Globals
     {
@@ -10,6 +6,8 @@ namespace Core
         {
             public static bool isFlyTriggered = false;
             public static bool isUnitsDeselected = false;
+            public static bool isOneUnitSelected = false;
+            public static bool hasReachedDestination = false;
         }
 
         public class Layers
@@ -21,6 +19,8 @@ namespace Core
         {
             public const string activeObjectTag = "Active Object";
             public const string inActiveObjectTag = "Inactive Object";
+            public const string starBaseTag = "Star Base Button";
+            public const string gatherResourceTag = "Gather Resource Button";
         }
         public class Scenes
         {

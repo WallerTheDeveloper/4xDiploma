@@ -9,6 +9,8 @@ TagManager:
   - Instantiated Planets
   - Inactive Object
   - Active Object
+  - Star Base Button
+  - Gather Resource Button
   layers:
   - Default
   - TransparentFX

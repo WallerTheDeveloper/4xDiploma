@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -35,6 +33,7 @@ namespace Core.UnitSelection
             {
                 UnitSelections.Instance.DeselectAll();
                 Globals.Bools.isUnitsDeselected = true;
+                Globals.Bools.isOneUnitSelected = false;
             }
         }
 

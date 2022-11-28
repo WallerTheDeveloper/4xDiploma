@@ -47,8 +47,10 @@ MonoBehaviour:
   _aiShipsData: {fileID: 11400000, guid: 503dcb6bf1da5e745932cb65bf98eda6, type: 2}
   _planetsData: {fileID: 11400000, guid: 749a909ca53fe404f900bd32126abb7e, type: 2}
   _cameraData: {fileID: 11400000, guid: 2810d7eea02192c47a92b25d3d3aa65e, type: 2}
+  _camera: {fileID: 0}
   _raceChoiceController: {fileID: 11400000, guid: 863ebda31339a2440b8bcc7dd976ca58, type: 2}
   _pauseMenuView: {fileID: 7486261422173444221, guid: 5f095078270043241be3b786e7d67a83, type: 3}
   _worldGenerator: {fileID: 2258650058499000, guid: cf3b424ee1b971a43bf21c3d46336720, type: 3}
   _constructionSpawner: {fileID: -6975899352340168343, guid: c7c51d2073b5bca44bba7c69965b05a5, type: 3}
+  _spaceObjectsSpawner: {fileID: -4700923201418425651, guid: 8f2ec07149039924ea4a472589497cfb, type: 3}
   _unitSelections: {fileID: 0}

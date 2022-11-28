@@ -1,12 +1,12 @@
-using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using Cinemachine;
 using Core.Data;
 using Core.RaceChoice;
+using Core.Spawners;
 using Core.UnitSelection;
 using Core.WorldGeneration;
 using Loading;
-using PlayerInteractable.Constructions;
+using UI;
 using UI.MenuUI;
 using UnityEngine;
 
@@ -29,6 +29,8 @@ namespace Core
         [SerializeField] private WorldGenerator _worldGenerator;
 
         [SerializeField] private ConstructionSpawner _constructionSpawner;
+        
+        [SerializeField] private SpaceObjectsSpawner _spaceObjectsSpawner;
 
         [SerializeField] private UnitSelections _unitSelections;
         
@@ -53,7 +55,9 @@ namespace Core
 
         private void Awake()
         {
-            _worldGenerator.Init(_shipsData, _aiShipsData, _constructionSpawner, _planetsData, _raceChoiceController);
+            _constructionSpawner.Init(_shipsData, _aiShipsData, _raceChoiceController);
+            _spaceObjectsSpawner.Init(_planetsData);
+            _worldGenerator.Init(_constructionSpawner, _spaceObjectsSpawner);
             _unitSelections.Init();
         }
         public void Init()

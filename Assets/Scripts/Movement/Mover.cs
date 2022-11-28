@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Core;
+using PlayerInteractable.SpaceObjects;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Quaternion = UnityEngine.Quaternion;
@@ -17,6 +18,11 @@ namespace Movement
         private Quaternion _rotation;
         private Transform _currentTargetLocation;
         private static Ray GetMouseRay => Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+        // private void OnEnable()
+        // {
+        //     Planet.OnButtonClick += CalculateMovement;
+        // }
 
         public void InteractWithMovement()
         {
@@ -45,7 +51,7 @@ namespace Movement
         {
             _speed = 0;
         }
-        public void Fly()
+        private void Fly()
         {
             Globals.Bools.isFlyTriggered = true;
             StartCoroutine(SmoothRotate());
@@ -53,11 +59,15 @@ namespace Movement
         }
         private IEnumerator CalculateMovement()
         {
+            Globals.Bools.hasReachedDestination = false;
             while (Vector3.Distance(transform.position, _currentTargetLocation.transform.position) > _targetDistance)
             {
                 transform.position = Vector3.MoveTowards(transform.position, _currentTargetLocation.transform.position, _speed * Time.deltaTime);
                 yield return null;
             }
+            Globals.Bools.hasReachedDestination = true;
+            // Planet.OnButtonClick -= CalculateMovement;
+            // print("Unsubscribed");
         }
         private IEnumerator SmoothRotate()
         {

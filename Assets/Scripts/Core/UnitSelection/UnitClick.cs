@@ -24,10 +24,13 @@ namespace Core.UnitSelection
                     if (Keyboard.current.leftShiftKey.isPressed)
                     {
                         UnitSelections.Instance.ShiftClickSelect(hit.collider.gameObject);
+                        Globals.Bools.isOneUnitSelected = false;
+
                     }
                     else
                     {
                         UnitSelections.Instance.ClickSelect(hit.collider.gameObject);
+                        Globals.Bools.isOneUnitSelected = true;
                     }
                 }
             }

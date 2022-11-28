@@ -39,6 +39,7 @@ namespace Core.Data
 
         [SerializeField] public bool useEdgeScreen = true;
         
+
         public Transform CameraTransform { get; set; }
     }
 }

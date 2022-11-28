@@ -108,6 +108,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3303264116534465021, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303264116534465021, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303264116534465021, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: -1223606425368263400}
+    - target: {fileID: 3303264116534465021, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303264116534465021, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GatherResource
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303264116534465021, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerInteractable.SpaceObjects.Planet, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303264116534465021, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249757379942120418, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5081294322253101153, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5977991620228533086, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -169,6 +205,10 @@ PrefabInstance:
       value: Crystal Planet
       objectReference: {fileID: 0}
     - target: {fileID: 7310623751456449235, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310623751456449235, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_TagString
       value: Inactive Object
       objectReference: {fileID: 0}
@@ -184,6 +224,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5977991620228533086, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
   m_PrefabInstance: {fileID: 8736900583288666132}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3096880087047945211 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6036478049395655663, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
+  m_PrefabInstance: {fileID: 8736900583288666132}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb818486df908342992f578d7e89f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-1223606425368263400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,3 +247,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e388bdb5678d945aa775aa39cb24d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _popUpMenu: {fileID: 3096880087047945211}
