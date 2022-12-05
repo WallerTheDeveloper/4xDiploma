@@ -6,7 +6,6 @@ using Core.Spawners;
 using Core.UnitSelection;
 using Core.WorldGeneration;
 using Loading;
-using UI;
 using UI.MenuUI;
 using UnityEngine;
 
@@ -29,6 +28,8 @@ namespace Core
         [SerializeField] private WorldGenerator _worldGenerator;
 
         [SerializeField] private ConstructionSpawner _constructionSpawner;
+
+        [SerializeField] private ConstructionBuildManager _constructionBuildManager;
         
         [SerializeField] private SpaceObjectsSpawner _spaceObjectsSpawner;
 
@@ -59,6 +60,7 @@ namespace Core
             _spaceObjectsSpawner.Init(_planetsData);
             _worldGenerator.Init(_constructionSpawner, _spaceObjectsSpawner);
             _unitSelections.Init();
+            _constructionBuildManager.Init(_raceChoiceController, _constructionSpawner);
         }
         public void Init()
         {

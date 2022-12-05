@@ -28,7 +28,7 @@ namespace Core.Spawners
                 {
                     if (_shipsData.data[i].RaceTypes == _raceChoiceController.ChosenRace)
                     {
-                        SpawnShip(randomPointAtMap, _shipsData.data[i].shipTypes[j], WorldGenerator.ShipsSpawnRadius, out Vector3 shipNewPosition);
+                        SpawnShipAtPoint(randomPointAtMap, _shipsData.data[i].shipTypes[j], WorldGenerator.ShipsSpawnRadius, out Vector3 shipNewPosition);
                         _shipsData.data[j].ShipsPositions.Add(shipNewPosition);
                     }
                 }
@@ -44,18 +44,33 @@ namespace Core.Spawners
                 {
                     if (_aiShipsData.data[i].RaceTypes != _raceChoiceController.ChosenRace)
                     {
-                        SpawnShip(randomPointAtMap, _aiShipsData.data[i].shipTypes[j], WorldGenerator.ShipsSpawnRadius, out Vector3 shipNewPosition);
+                        SpawnShipAtPoint(randomPointAtMap, _aiShipsData.data[i].shipTypes[j],
+                            WorldGenerator.ShipsSpawnRadius);
                     }
                 }
             }
         }
-        public void SpawnShip(Vector3 randomPointAtMap, BasicShip currentShip, float shipsSpawnRadius, out Vector3 position)
+        public void SpawnShipAtPoint(Vector3 pointAtMap, BasicShip currentShip, float shipsSpawnRadius, out Vector3 position)
         {
             float randomPointInRadiusX = (Random.insideUnitCircle.normalized * shipsSpawnRadius).x;
             float randomPointInRadiusZ = (Random.insideUnitCircle.normalized * shipsSpawnRadius).y;
 
-            position = new Vector3(randomPointAtMap.x + randomPointInRadiusX, 0,
-                randomPointAtMap.z + randomPointInRadiusZ);
+            position = new Vector3(pointAtMap.x + randomPointInRadiusX, 0,
+                pointAtMap.z + randomPointInRadiusZ);
+
+            Instantiate(
+                currentShip,
+                position,
+                Quaternion.identity);
+        }
+        public void SpawnShipAtPoint(Vector3 pointAtMap, BasicShip currentShip, float shipsSpawnRadius)
+        {
+            Vector3 position;
+            float randomPointInRadiusX = (Random.insideUnitCircle.normalized * shipsSpawnRadius).x;
+            float randomPointInRadiusZ = (Random.insideUnitCircle.normalized * shipsSpawnRadius).y;
+
+            position = new Vector3(pointAtMap.x + randomPointInRadiusX, 0,
+                pointAtMap.z + randomPointInRadiusZ);
 
             Instantiate(
                 currentShip,

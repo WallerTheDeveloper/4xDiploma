@@ -20,7 +20,8 @@ namespace Core.Spawners
             {
                 Vector3 randomPointAtMap = RandomPointGenerator.GenerateRandomPointAtMap();
 
-                bool checkObjectsInRadius = Physics.CheckSphere(randomPointAtMap, Planet.COLLIDER_RADIUS / WorldGenerator.PlanetsSpawnDensity);
+                bool checkObjectsInRadius = 
+                    Physics.CheckSphere(randomPointAtMap, Planet.COLLIDER_RADIUS / WorldGenerator.PlanetsSpawnDensity);
                 
                 if (checkObjectsInRadius)
                 {
@@ -31,16 +32,19 @@ namespace Core.Spawners
 
                 if (rnd <= _planetsData.data[i].spawnProbability)
                 {
-                    Planet planet = _planetsData.data[i].planetPrefab;
-                    Instantiate(
-                        planet, 
-                        randomPointAtMap, 
-                        Quaternion.identity,
-                        GameObject.FindGameObjectWithTag("Instantiated Planets").transform // to prevent editor littering
-                    );
-                    planet.DisableSpaceObjectMeshRenderer();
+                    SpawnSpaceObjectAtRandomPoint(_planetsData.data[i].planetPrefab, randomPointAtMap);
                 }
             }
+        }
+        public void SpawnSpaceObjectAtRandomPoint(Planet planet, Vector3 pointAtMap)
+        {
+            Instantiate(
+                planet, 
+                pointAtMap, 
+                Quaternion.identity,
+                GameObject.FindGameObjectWithTag("Instantiated Planets").transform // to prevent editor littering
+            );
+            planet.DisableSpaceObjectMeshRenderer();
         }
     }
 }

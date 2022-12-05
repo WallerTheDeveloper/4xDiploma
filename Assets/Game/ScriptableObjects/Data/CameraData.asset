@@ -22,4 +22,4 @@ MonoBehaviour:
   zoomSpeed: 2
   maxRotationSpeed: 0.1
   edgeTolerance: 0.01
-  useEdgeScreen: 0
+  useEdgeScreen: 1

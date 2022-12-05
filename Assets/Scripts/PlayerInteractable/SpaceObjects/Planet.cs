@@ -10,14 +10,16 @@
         [SerializeField] private PopUpMenu _popUpMenu;
         private Camera _camera;
         private Collider _planetCollider;
+        
         private bool isClicked = true;
         
         public const int COLLIDER_RADIUS = 35;
-        // public static Func<IEnumerator> OnButtonClick;
+        protected virtual int Alloys { get; set; }
         private void Start()
         {
             _planetCollider = GetComponent<Collider>();
             _camera = Camera.main;
+            
             
         }
         private void Update()
@@ -33,13 +35,11 @@
                 isClicked = true;
             }
         }
-        public void GatherResource() // Editor event function 
+        public virtual void GatherResource() // Editor event function 
         {
-            if (Globals.Bools.hasReachedDestination)
-            {
-                _popUpMenu.ActivatePopUpMenu(false);
-                print("Resource gathered!");
-            }
+            Globals.Bools.hasReachedDestination = false;
+            _popUpMenu.ActivatePopUpMenu(false);
+            print("Resource gathered!");
         }
         public void BuildStarBaseInRadius() // Editor event function 
         {
