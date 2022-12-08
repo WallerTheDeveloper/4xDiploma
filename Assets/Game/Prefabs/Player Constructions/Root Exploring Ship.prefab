@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6687622223272715041, guid: 9eb9f9521f331f643b9c41848f6893f2, type: 3}
       propertyPath: _visionRadius
-      value: 60
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 347877221081845298, guid: 9eb9f9521f331f643b9c41848f6893f2, type: 3}
       propertyPath: m_IsActive

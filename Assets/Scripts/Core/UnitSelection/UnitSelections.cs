@@ -21,12 +21,19 @@ namespace Core.UnitSelection
                 Instance = this;
             }
         }
+        public void Select(GameObject unitToSelect)
+        {
+            unitsSelected.Add(unitToSelect);
+            ActivateSelectionCircle(unitToSelect, true);
+        }
+        
         public void ClickSelect(GameObject unitToAdd)
         {
             DeselectAll();
             Select(unitToAdd);
             ActivateMovement(unitToAdd,true);
         }
+        
         public void ShiftClickSelect(GameObject unitToAdd)
         {
             if (!unitsSelected.Contains(unitToAdd))
@@ -40,6 +47,7 @@ namespace Core.UnitSelection
                 Deselect(unitToAdd);
             }
         }
+        
         public void DragSelect(GameObject unitToAdd)
         {
             if (!unitsSelected.Contains(unitToAdd))
@@ -57,11 +65,6 @@ namespace Core.UnitSelection
                 ActivateSelectionCircle(unit, false);
             }
             unitsSelected.Clear();
-        }
-        public void Select(GameObject unitToSelect)
-        {
-            unitsSelected.Add(unitToSelect);
-            ActivateSelectionCircle(unitToSelect, true);
         }
         public void Deselect(GameObject unitToDeselect)
         {

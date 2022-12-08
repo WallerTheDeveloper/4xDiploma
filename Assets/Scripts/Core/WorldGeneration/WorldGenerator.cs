@@ -9,7 +9,7 @@ namespace Core.WorldGeneration
         public static float ShipsSpawnRadius = 5f;
         
         [Range(0.7f, 3f)] 
-        public static float PlanetsSpawnDensity = 1f;
+        public static float PlanetsSpawnDensity = 2f;
         
         private ConstructionSpawner _constructionSpawner;
         private SpaceObjectsSpawner _spaceObjectsSpawner;

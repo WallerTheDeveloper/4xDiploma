@@ -7,7 +7,7 @@
 {
     public abstract class Planet: MonoBehaviour
     {
-        [SerializeField] private PopUpMenu _popUpMenu;
+        [SerializeField] protected PopUpMenu _popUpMenu;
         private Camera _camera;
         private Collider _planetCollider;
         
@@ -19,8 +19,6 @@
         {
             _planetCollider = GetComponent<Collider>();
             _camera = Camera.main;
-            
-            
         }
         private void Update()
         {
@@ -38,17 +36,11 @@
         public virtual void GatherResource() // Editor event function 
         {
             Globals.Bools.hasReachedDestination = false;
+            PlanetActionsManager.Instance.ClickedObjects.Add(this);
             _popUpMenu.ActivatePopUpMenu(false);
             print("Resource gathered!");
         }
-        public void BuildStarBaseInRadius() // Editor event function 
-        {
-            if (Globals.Bools.hasReachedDestination)
-            {
-                _popUpMenu.ActivatePopUpMenu(false);
-                print("Star base built!");
-            }
-        }
+        
         private void ActivatePopUpOnClick(bool isActive)
         {
             if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -57,7 +49,10 @@
     
                 if (_planetCollider.Raycast(ray, out var hit, Mathf.Infinity))
                 {
-                    _popUpMenu.ActivatePopUpMenu(isActive);
+                    if (_popUpMenu != null)
+                    {
+                        _popUpMenu.ActivatePopUpMenu(isActive);
+                    }
                 }
             }
         }

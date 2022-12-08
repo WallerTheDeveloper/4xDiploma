@@ -212,10 +212,6 @@ namespace Control
             return right;
         }
 
-        // private static Ray GetMouseRay()
-        // {
-        //     return Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-        // }
         private Ray GetMouseRay()
         {
             return Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());

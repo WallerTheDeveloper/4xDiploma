@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using Core;
-using PlayerInteractable.SpaceObjects;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Quaternion = UnityEngine.Quaternion;

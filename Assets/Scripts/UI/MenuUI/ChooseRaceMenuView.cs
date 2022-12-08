@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Core.RaceChoice;
 using Loading;
 using Races;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace UI.MenuUI

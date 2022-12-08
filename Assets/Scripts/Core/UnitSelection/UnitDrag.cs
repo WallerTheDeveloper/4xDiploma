@@ -5,7 +5,6 @@ namespace Core.UnitSelection
 {
     public class UnitDrag : MonoBehaviour
     {
-        
         private bool _isDragging = false;
         private Color _greenColor = new Color(0.5f, 1f, 0.4f, 0.2f);
         private Vector2 _dragStartPosition;

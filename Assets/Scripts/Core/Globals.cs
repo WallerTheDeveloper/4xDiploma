@@ -19,8 +19,7 @@
         {
             public const string activeObjectTag = "Active Object";
             public const string inActiveObjectTag = "Inactive Object";
-            public const string starBaseTag = "Star Base Button";
-            public const string gatherResourceTag = "Gather Resource Button";
+            public const string starBaseTag = "Star Base";
         }
         public class Scenes
         {
