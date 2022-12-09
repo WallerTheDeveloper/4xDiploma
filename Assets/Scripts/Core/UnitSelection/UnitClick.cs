@@ -25,7 +25,6 @@ namespace Core.UnitSelection
                     {
                         UnitSelections.Instance.ShiftClickSelect(hit.collider.gameObject);
                         Globals.Bools.isOneUnitSelected = false;
-
                     }
                     else
                     {

@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5078232514434234372, guid: 9eb9f9521f331f643b9c41848f6893f2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6924568451411649989, guid: 9eb9f9521f331f643b9c41848f6893f2, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -1,5 +1,3 @@
-using Control;
-using PlayerInteractable.SpaceObjects;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -8,15 +6,15 @@ namespace PlayerInteractable.Constructions
     public class EngineeringShip : BasicShip
     {
         [SerializeField] private StarBase _starBaseObject;
-        private void OnEnable()
-        {
-            if (TryGetComponent(out InputController inputController))
-            {
-                Star.OnPopUpMenuButtonClicked += BuildStarBaseInRadius;
-            }
-        }
+        // private void OnEnable()
+        // {
+        //     if (TryGetComponent(out InputController inputController))
+        //     {
+        //         Star.OnPopUpMenuButtonClicked += BuildStarBaseInRadius;
+        //     }
+        // }
 
-        private void BuildStarBaseInRadius(Transform starTransform)
+        public void BuildStarBaseInRadius(Transform starTransform)
         {
             Vector3 starPosition = starTransform.position;
             float starSpawnRadius = 5f;

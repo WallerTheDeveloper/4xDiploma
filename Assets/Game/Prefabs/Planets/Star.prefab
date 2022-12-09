@@ -124,6 +124,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 3580353460119186261, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4249757379942120418, guid: 573fc1462bc37e34787b8f32bdecb831, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -271,6 +275,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb818486df908342992f578d7e89f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &5355122533207210230
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8300442064710246306}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &-8189739002616108534
 MonoBehaviour:
   m_ObjectHideFlags: 0
