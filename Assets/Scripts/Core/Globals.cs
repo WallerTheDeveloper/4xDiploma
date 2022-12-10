@@ -5,7 +5,6 @@
         public class Bools
         {
             public static bool isFlyTriggered = false;
-            public static bool isUnitsDeselected = false;
             public static bool isOneUnitSelected = false;
             public static bool hasReachedDestination = false;
         }
@@ -14,6 +13,7 @@
         {
             public static int PLANET_LAYER_MASK = 1 << 6; // Layer name: Planet
             public static int CONSTRUCTION_LAYER_MASK = 1 << 7; // Layer name: Construction
+            public static int CONSTRUCTION_LAYER = 7;
         }
         public class Tags
         {

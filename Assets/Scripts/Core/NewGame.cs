@@ -21,7 +21,7 @@ namespace Core
         
         [SerializeField] private CameraData _cameraData;
         
-        [SerializeField] private RaceChoiceController _raceChoiceController;
+        // [SerializeField] private RaceChoiceController _raceChoiceController;
         
         [SerializeField] private PauseMenuView _pauseMenuView;
         
@@ -56,11 +56,11 @@ namespace Core
 
         private void Awake()
         {
-            _constructionSpawner.Init(_shipsData, _aiShipsData, _raceChoiceController);
+            _constructionSpawner.Init(_shipsData, _aiShipsData, ProjectContext.Instance.RaceChoiceController);
             _spaceObjectsSpawner.Init(_planetsData);
             _worldGenerator.Init(_constructionSpawner, _spaceObjectsSpawner);
             _unitSelections.Init();
-            _constructionBuildManager.Init(_raceChoiceController, _constructionSpawner);
+            _constructionBuildManager.Init(ProjectContext.Instance.RaceChoiceController, _constructionSpawner);
         }
         public void Init()
         {
@@ -74,7 +74,7 @@ namespace Core
         {
             for (int i = 0; i < RaceChoiceController.RaceTypesList.Count; i++)
             {
-                if (RaceChoiceController.RaceTypesList[i] == _raceChoiceController.ChosenRace)
+                if (RaceChoiceController.RaceTypesList[i] == ProjectContext.Instance.RaceChoiceController.ChosenRace)
                 {
                     Transform cameraRigTransform = _cameraData.CameraTransform.parent.transform;
                     

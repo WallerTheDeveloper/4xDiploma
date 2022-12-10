@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa0cb65a5e17cc4facb6079494da155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RaceChoiceController: {fileID: 11400000, guid: 863ebda31339a2440b8bcc7dd976ca58, type: 2}
 --- !u!4 &12124837
 Transform:
   m_ObjectHideFlags: 0

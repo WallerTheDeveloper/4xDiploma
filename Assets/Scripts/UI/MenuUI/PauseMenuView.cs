@@ -20,7 +20,7 @@ namespace UI.MenuUI
 
         private void Update()
         {
-            if (Keyboard.current.escapeKey.wasPressedThisFrame && Globals.Bools.isUnitsDeselected) // TODO: Exit not working
+            if (Keyboard.current.escapeKey.wasPressedThisFrame) // TODO: Exit not working
             {
                 OnEscapeButtonClicked();
                 print("Clicked");

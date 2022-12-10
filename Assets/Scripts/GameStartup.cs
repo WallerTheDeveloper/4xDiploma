@@ -7,6 +7,7 @@ using UnityEngine;
 public class GameStartup : MonoBehaviour
 {
     private LoadingScreenProvider LoadingScreenProvider => ProjectContext.Instance.LoadingScreenProvider;
+    
 
     private void Start()
     {

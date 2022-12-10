@@ -10,6 +10,8 @@ TagManager:
   - Inactive Object
   - Active Object
   - Star Base
+  - Star Base Button
+  - Gather Resource Button
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - UI
   - Planet
   - Construction
-  - 
+  - Map
   - 
   - 
   - 

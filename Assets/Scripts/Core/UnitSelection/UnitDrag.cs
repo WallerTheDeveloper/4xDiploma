@@ -25,13 +25,11 @@ namespace Core.UnitSelection
             if (_isDragging && _dragStartPosition != Mouse.current.position.ReadValue())
             {
                 SelectUnits();
-                Globals.Bools.isUnitsDeselected = false;
             }
 
             if (Keyboard.current.escapeKey.wasPressedThisFrame)
             {
                 UnitSelections.Instance.DeselectAll();
-                Globals.Bools.isUnitsDeselected = true;
                 Globals.Bools.isOneUnitSelected = false;
             }
         }

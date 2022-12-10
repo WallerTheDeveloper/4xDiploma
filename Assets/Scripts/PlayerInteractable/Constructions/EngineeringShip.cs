@@ -6,13 +6,6 @@ namespace PlayerInteractable.Constructions
     public class EngineeringShip : BasicShip
     {
         [SerializeField] private StarBase _starBaseObject;
-        // private void OnEnable()
-        // {
-        //     if (TryGetComponent(out InputController inputController))
-        //     {
-        //         Star.OnPopUpMenuButtonClicked += BuildStarBaseInRadius;
-        //     }
-        // }
 
         public void BuildStarBaseInRadius(Transform starTransform)
         {
