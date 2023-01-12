@@ -23,7 +23,7 @@ public class ConstructionVisionBehaviour : MonoBehaviour
             if (childMesh != null)
             {
                 childMesh.enabled = true;
-                collider.gameObject.tag = Globals.Tags.activeObjectTag;
+                collider.gameObject.tag = Globals.Tags.ActiveObjectTag;
             }
         }
     }

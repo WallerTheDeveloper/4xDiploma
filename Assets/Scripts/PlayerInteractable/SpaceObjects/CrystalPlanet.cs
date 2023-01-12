@@ -10,7 +10,7 @@ namespace PlayerInteractable.SpaceObjects
 
         public override void GatherResource()
         {
-            if (Globals.Bools.hasReachedDestination)
+            if (Globals.Bools.HasReachedDestination)
             {
                 ResourceGatherManager.Instance.AddRedCrystals(CrystalsAmount);
                 ResourceGatherManager.Instance.AddAlloys(Alloys);

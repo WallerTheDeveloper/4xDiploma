@@ -22,7 +22,7 @@
         }
         private void Update()
         {
-            if (isClicked && Globals.Bools.isOneUnitSelected)
+            if (isClicked && Globals.Bools.IsOneUnitSelected)
             {
                 ActivatePopUpOnClick(true);
                 isClicked = false;
@@ -35,7 +35,7 @@
         }
         public virtual void GatherResource() // Editor event function 
         {
-            Globals.Bools.hasReachedDestination = false;
+            Globals.Bools.HasReachedDestination = false;
             PlanetActionsManager.Instance.ClickedObjects.Add(this);
             _popUpMenu.ActivatePopUpMenu(false);
             print("Resource gathered!");
@@ -63,7 +63,7 @@
             if (childMesh != null)
             {
                 childMesh.enabled = false;
-                gameObject.tag = Globals.Tags.inActiveObjectTag;
+                gameObject.tag = Globals.Tags.InActiveObjectTag;
             }
         }
     }

@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 3440125234884277203}
   - component: {fileID: 7073934301528984870}
   - component: {fileID: -7779182715249085522}
-  - component: {fileID: 1829595519450666123}
+  - component: {fileID: -7603360134517620426}
   m_Layer: 0
   m_Name: AI Root Ship
-  m_TagString: Untagged
+  m_TagString: AI Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,7 +62,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1829595519450666123
+--- !u!114 &-7603360134517620426
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,6 +71,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5524365364650167558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fa1f02042993b449b9b770d3aebccf0, type: 3}
+  m_Script: {fileID: 11500000, guid: 5232d0b5b3d7cbd488a2c065a8d3d48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chaseDistance: 5
+  suspitionTime: 3
+  _AIShipsData: {fileID: 11400000, guid: 503dcb6bf1da5e745932cb65bf98eda6, type: 2}
+  patrolPath: {fileID: 0}
+  waypointTolerance: 15
+  waypointDwellTime: 1

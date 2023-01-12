@@ -4,9 +4,8 @@
     {
         public class Bools
         {
-            public static bool isFlyTriggered = false;
-            public static bool isOneUnitSelected = false;
-            public static bool hasReachedDestination = false;
+            public static bool IsOneUnitSelected = false;
+            public static bool HasReachedDestination = false;
         }
 
         public class Layers
@@ -17,8 +16,12 @@
         }
         public class Tags
         {
-            public const string activeObjectTag = "Active Object";
-            public const string inActiveObjectTag = "Inactive Object";
+            public const string ActiveObjectTag = "Active Object";
+            public const string InActiveObjectTag = "Inactive Object";
+            public const string PatrolWaysTag = "Patrol Ways";
+            public const string PatrolPathTag = "Patrol Path";
+            public const string InstantiatedObjectsTag = "Instantiated Planets";
+            public const string AIUnitTag = "AI Unit";
         }
         public class Scenes
         {

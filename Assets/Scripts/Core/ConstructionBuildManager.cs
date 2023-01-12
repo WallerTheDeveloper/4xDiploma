@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Core
 {
-    public class ConstructionBuildManager : MonoBehaviour
+    public class ConstructionBuildManager : MonoBehaviour // TODO: Bug: While building constructions as machine race (or human) human race (or machine) ships are being instantiated 
     {
         [SerializeField] private GamePanelUI _gamePanelUI;
         [SerializeField] private ShipsData _shipsData;

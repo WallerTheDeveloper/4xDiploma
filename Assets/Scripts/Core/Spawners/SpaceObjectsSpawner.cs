@@ -42,7 +42,7 @@ namespace Core.Spawners
                 planet, 
                 pointAtMap, 
                 Quaternion.identity,
-                GameObject.FindGameObjectWithTag("Instantiated Planets").transform // to prevent editor littering
+                GameObject.FindGameObjectWithTag(Globals.Tags.InstantiatedObjectsTag).transform // to prevent editor littering
             );
             planet.DisableSpaceObjectMeshRenderer();
         }

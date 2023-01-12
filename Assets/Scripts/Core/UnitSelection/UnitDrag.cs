@@ -30,7 +30,7 @@ namespace Core.UnitSelection
             if (Keyboard.current.escapeKey.wasPressedThisFrame)
             {
                 UnitSelections.Instance.DeselectAll();
-                Globals.Bools.isOneUnitSelected = false;
+                Globals.Bools.IsOneUnitSelected = false;
             }
         }
 

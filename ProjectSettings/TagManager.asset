@@ -12,6 +12,9 @@ TagManager:
   - Star Base
   - Star Base Button
   - Gather Resource Button
+  - Patrol Ways
+  - Patrol Path
+  - AI Unit
   layers:
   - Default
   - TransparentFX

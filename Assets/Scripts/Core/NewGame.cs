@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using AI;
 using Cinemachine;
 using Core.Data;
 using Core.RaceChoice;
@@ -34,16 +36,14 @@ namespace Core
         [SerializeField] private SpaceObjectsSpawner _spaceObjectsSpawner;
 
         [SerializeField] private UnitSelections _unitSelections;
+
+        [SerializeField] private PatrolPathRandomSpawner _patrolPathRandomSpawner;
         
         private int _numberOfFrames = 0;
         
         private int _numberOfFrameToInitGame = 5;
         public string SceneName => Globals.Scenes.NEW_GAME;
         
-        private void OnApplicationQuit()
-        {
-            ResetPositionsOnQuit();
-        }
 
         private void Update()
         {
@@ -56,7 +56,7 @@ namespace Core
 
         private void Awake()
         {
-            _constructionSpawner.Init(_shipsData, _aiShipsData, ProjectContext.Instance.RaceChoiceController);
+            _constructionSpawner.Init(_shipsData, _aiShipsData, ProjectContext.Instance.RaceChoiceController, _patrolPathRandomSpawner);
             _spaceObjectsSpawner.Init(_planetsData);
             _worldGenerator.Init(_constructionSpawner, _spaceObjectsSpawner);
             _unitSelections.Init();
@@ -70,11 +70,12 @@ namespace Core
         {
             MoveCameraToChosenRaceShip();
         }
+        
         public void MoveCameraToChosenRaceShip()
         {
-            for (int i = 0; i < RaceChoiceController.RaceTypesList.Count; i++)
+            for (int i = 0; i < _shipsData.data.Length; i++)
             {
-                if (RaceChoiceController.RaceTypesList[i] == ProjectContext.Instance.RaceChoiceController.ChosenRace)
+                if (_shipsData.data[i].RaceTypes == ProjectContext.Instance.RaceChoiceController.ChosenRace)
                 {
                     Transform cameraRigTransform = _cameraData.CameraTransform.parent.transform;
                     
@@ -93,12 +94,23 @@ namespace Core
             operations.Enqueue(new ClearGameOperation(this));
             ProjectContext.Instance.LoadingScreenProvider.LoadAndDestroy(operations);
         }
-        private void ResetPositionsOnQuit()
+        private void ResetData()
         {
             foreach (var data in _shipsData.data)
             {
                 data.ShipsPositions = new List<Vector3>();
-            } 
+
+            }
+
+            foreach (var aidata in _aiShipsData.data)
+            {
+                aidata.ShipsPositions = new List<Vector3>();
+            }
+        }
+        
+        private void OnDestroy()
+        {
+            ResetData();
         }
     }
 }

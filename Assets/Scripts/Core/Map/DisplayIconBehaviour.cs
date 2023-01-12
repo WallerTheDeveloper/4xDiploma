@@ -15,7 +15,7 @@ namespace Core.Map
         private void Update()
         {
             var parentObjectTag = gameObject.transform.parent.tag;
-            if (parentObjectTag == Globals.Tags.inActiveObjectTag)
+            if (parentObjectTag == Globals.Tags.InActiveObjectTag)
             {
                 _spriteRenderer.enabled = false;
             }

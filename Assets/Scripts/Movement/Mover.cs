@@ -1,4 +1,7 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using AI;
+using Control;
 using Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,33 +13,25 @@ namespace Movement
     [RequireComponent(typeof(Rigidbody), typeof(ActionScheduler))]
     public class Mover: MonoBehaviour, IAction
     {
-        private float _speed = 5f;
+        private float _speed = 10f;
         private float _targetDistance = 2f; // how close to the target do you want to get?
         private float _rotateSpeed = 5f;
-            
+        
         private Quaternion _rotation;
-        private Transform _currentTargetLocation;
+        // private Transform _currentTargetLocation;
+        private Vector3 _currentTargetLocation;
         private static Ray GetMouseRay => Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-
-        // private void OnEnable()
-        // {
-        //     Planet.OnButtonClick += CalculateMovement;
-        // }
 
         public void InteractWithMovement()
         {
-            if (Globals.Bools.isFlyTriggered)
-            {
-                StopAllCoroutines();
-                Globals.Bools.isFlyTriggered = false;
-            }
+            StopAllCoroutines();
             bool hasHit = Physics.Raycast(GetMouseRay, out var hit, Mathf.Infinity, Globals.Layers.PLANET_LAYER_MASK); //Raycasting only when object has layer name "Planet"
-            if (hasHit && hit.transform.CompareTag(Globals.Tags.activeObjectTag))
+            if (hasHit && hit.transform.CompareTag(Globals.Tags.ActiveObjectTag))
             {
-                PerformFlyAction(hit.transform);
+                PerformFlyAction(hit.transform.position);
             }
         }
-        public void PerformFlyAction(Transform destination)
+        public void PerformFlyAction(Vector3 destination)
         {
             if (TryGetComponent(out ActionScheduler actionScheduler))
             {
@@ -52,25 +47,28 @@ namespace Movement
         }
         private void Fly()
         {
-            Globals.Bools.isFlyTriggered = true;
             StartCoroutine(SmoothRotate());
             StartCoroutine(CalculateMovement());
+            if (TryGetComponent(out InputController inputController))
+            {
+                return;
+            }
+            StopAllCoroutines();
         }
         private IEnumerator CalculateMovement()
         {
-            Globals.Bools.hasReachedDestination = false;
-            while (Vector3.Distance(transform.position, _currentTargetLocation.transform.position) > _targetDistance)
+            Globals.Bools.HasReachedDestination = false;
+            while (Vector3.Distance(transform.position, _currentTargetLocation) > _targetDistance)
             {
-                transform.position = Vector3.MoveTowards(transform.position, _currentTargetLocation.transform.position, _speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, _currentTargetLocation, _speed * Time.deltaTime);
                 yield return null;
             }
-            Globals.Bools.hasReachedDestination = true;
-            // Planet.OnButtonClick -= CalculateMovement;
-            // print("Unsubscribed");
+            Globals.Bools.HasReachedDestination = true;
         }
         private IEnumerator SmoothRotate()
         {
-            Vector3 direction = (_currentTargetLocation.transform.position - transform.position).normalized;
+            Vector3 direction = (_currentTargetLocation - transform.position).normalized;
+            
             _rotation = Quaternion.LookRotation(direction);
 
             while (_rotation != transform.rotation)

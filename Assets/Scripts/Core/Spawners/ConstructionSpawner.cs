@@ -1,3 +1,4 @@
+using AI;
 using Core.Data;
 using Core.RaceChoice;
 using Core.WorldGeneration;
@@ -11,26 +12,29 @@ namespace Core.Spawners
         private ShipsData _shipsData;
         private ShipsData _aiShipsData;
         private RaceChoiceController _raceChoiceController;
-        
-        public void Init(ShipsData shipsData, ShipsData aiShipsData, RaceChoiceController raceChoiceController)
+        private PatrolPathRandomSpawner _patrolPathRandomSpawner;
+        private BasicShip _currentShip;
+        public void Init(ShipsData shipsData, ShipsData aiShipsData, RaceChoiceController raceChoiceController, PatrolPathRandomSpawner patrolPathRandomSpawner)
         {
             _shipsData = shipsData;
             _aiShipsData = aiShipsData;
-            _raceChoiceController = raceChoiceController; 
+            _raceChoiceController = raceChoiceController;
+            _patrolPathRandomSpawner = patrolPathRandomSpawner;
         }
         public void SpawnPlayerDrivenShips()
         {
             for (int i = 0; i < _shipsData.data.Length; i++)
             {
+                if (_shipsData.data[i].RaceTypes != _raceChoiceController.ChosenRace)
+                {
+                    continue;
+                }
                 Vector3 randomPointAtMap = RandomPointGenerator.GenerateRandomPointAtMap();
-
+                
                 for (int j = 0; j < _shipsData.data[i].shipTypes.Length; j++)
                 {
-                    if (_shipsData.data[i].RaceTypes == _raceChoiceController.ChosenRace)
-                    {
-                        SpawnShipAtPoint(randomPointAtMap, _shipsData.data[i].shipTypes[j], WorldGenerator.ShipsSpawnRadius, out Vector3 shipNewPosition);
-                        _shipsData.data[j].ShipsPositions.Add(shipNewPosition);
-                    }
+                    SpawnShipAtPoint(randomPointAtMap, _shipsData.data[i].shipTypes[j], WorldGenerator.ShipsSpawnRadius, out Vector3 shipNewPosition);
+                    _shipsData.data[i].ShipsPositions.Add(shipNewPosition);
                 }
             }
         }
@@ -39,14 +43,19 @@ namespace Core.Spawners
             // Spawn AI driven ships
             for (int i = 0; i < _aiShipsData.data.Length; i++)
             {
+                if (_aiShipsData.data[i].RaceTypes == _raceChoiceController.ChosenRace)
+                {
+                    continue;
+                }
+
                 Vector3 randomPointAtMap = RandomPointGenerator.GenerateRandomPointAtMap();
                 for (int j = 0; j < _aiShipsData.data[i].shipTypes.Length; j++)
                 {
-                    if (_aiShipsData.data[i].RaceTypes != _raceChoiceController.ChosenRace)
-                    {
-                        SpawnShipAtPoint(randomPointAtMap, _aiShipsData.data[i].shipTypes[j],
-                            WorldGenerator.ShipsSpawnRadius);
-                    }
+                    SpawnShipAtPoint(randomPointAtMap, _aiShipsData.data[i].shipTypes[j],
+                        WorldGenerator.ShipsSpawnRadius, out Vector3 AIshipNewPosition);
+                    _aiShipsData.data[i].ShipsPositions.Add(AIshipNewPosition);
+                    var currentShipPatrolPath = _patrolPathRandomSpawner.GeneratePatrolPath(AIshipNewPosition);
+                    _currentShip.GetComponent<AIController>().patrolPath = currentShipPatrolPath;
                 }
             }
         }
@@ -57,8 +66,8 @@ namespace Core.Spawners
 
             position = new Vector3(pointAtMap.x + randomPointInRadiusX, 0,
                 pointAtMap.z + randomPointInRadiusZ);
-
-            Instantiate(
+    
+            _currentShip = Instantiate(
                 currentShip,
                 position,
                 Quaternion.identity);
