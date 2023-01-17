@@ -35,6 +35,11 @@ MonoBehaviour:
       - 10
       - 20
       - 30
+    - stat: 1
+      levels:
+      - 10
+      - 20
+      - 30
   - ShipType: 1
     stats:
     - stat: 0
@@ -57,6 +62,11 @@ MonoBehaviour:
       - 10
       - 20
       - 30
+    - stat: 1
+      levels:
+      - 10
+      - 20
+      - 30
   - ShipType: 2
     stats:
     - stat: 0
@@ -74,27 +84,59 @@ MonoBehaviour:
       - 10
       - 20
       - 30
+    - stat: 1
+      levels:
+      - 10
+      - 20
+      - 30
   - ShipType: 3
     stats:
     - stat: 0
       levels:
       - 400
+      - 500
+      - 600
     - stat: 1
       levels:
       - 10
+      - 20
+      - 30
+    - stat: 2
+      levels:
+      - 10
+      - 20
+      - 30
   - ShipType: 4
     stats:
     - stat: 0
       levels:
       - 400
+      - 500
+      - 600
     - stat: 1
       levels:
       - 20
+      - 30
+      - 40
+    - stat: 2
+      levels:
+      - 10
+      - 20
+      - 30
   - ShipType: 5
     stats:
     - stat: 0
       levels:
       - 300
+      - 400
+      - 500
     - stat: 1
       levels:
+      - 5
+      - 10
+      - 15
+    - stat: 2
+      levels:
+      - 10
+      - 20
       - 30

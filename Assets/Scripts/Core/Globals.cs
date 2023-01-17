@@ -22,6 +22,8 @@
             public const string PatrolPathTag = "Patrol Path";
             public const string InstantiatedObjectsTag = "Instantiated Planets";
             public const string AIUnitTag = "AI Unit";
+            public const string SelectableUnitTag = "SelectableUnit";
+            public const string ActivateSelection = "ActivateSelection";
         }
         public class Scenes
         {

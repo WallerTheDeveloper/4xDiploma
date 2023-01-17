@@ -10,6 +10,9 @@ using Core.WorldGeneration;
 using Loading;
 using UI.MenuUI;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.SceneManagement;
 
 namespace Core
 {
@@ -43,7 +46,8 @@ namespace Core
         
         private int _numberOfFrameToInitGame = 5;
         public string SceneName => Globals.Scenes.NEW_GAME;
-        
+        // public string SceneName => Globals.Scenes.MAIN_MENU;
+
 
         private void Update()
         {
@@ -64,7 +68,6 @@ namespace Core
         }
         public void Init()
         {
-            _pauseMenuView.QuitGame += GoToMainMenu;
         }
         private void BasicGameConfiguration()
         {

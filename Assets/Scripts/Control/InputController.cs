@@ -1,8 +1,11 @@
 using System;
+using System.Collections;
+using CombatSystem;
 using Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Movement;
+using PlayerInteractable.SpaceObjects;
 
 namespace Control
 {
@@ -36,7 +39,16 @@ namespace Control
             
             _inputActions.Disable();
         }
-        
+
+        private void Update()
+        {
+            InteractWithComponent();
+            if (_moveShouldContinue && _moveHasStarted)
+            {
+                _mover.InteractWithMovement();
+            }
+        }
+
         private void OnClick(InputAction.CallbackContext context)
         {
             switch (context.phase) {
@@ -62,10 +74,10 @@ namespace Control
         private void OnClickPerformed(InputAction.CallbackContext context)
         {
             _moveHasStarted = true;
-            if (_moveShouldContinue && _moveHasStarted)
-            {
-               _mover.InteractWithMovement();
-            }
+            // if (_moveShouldContinue && _moveHasStarted)
+            // {
+            //     _mover.InteractWithMovement();
+            // }
         }
         private void OnClickStarted(InputAction.CallbackContext context) {
             _moveShouldContinue = true;
@@ -86,6 +98,34 @@ namespace Control
         {
             _moveShouldContinue = false;
             _moveHasStarted = false;
+        }
+        
+        private void InteractWithComponent()
+        {
+            RaycastHit[] hits = RaycastAllSorted();
+            foreach (var hit in hits)
+            {
+                IRaycastable[] raycastables = hit.transform.GetComponents<IRaycastable>();
+                foreach (var raycastable in raycastables)
+                {
+                    raycastable.HandleRaycast(this); 
+                } 
+            }
+        }
+        private RaycastHit[] RaycastAllSorted()
+        {
+            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            float[] distances = new float[hits.Length];
+            for (int i = 0; i < hits.Length; i++)
+            {
+                distances[i] = hits[i].distance;
+            }
+            Array.Sort(distances, hits);
+            return hits;
+        }
+        private static Ray GetMouseRay()
+        {
+            return Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         }
     }
 }

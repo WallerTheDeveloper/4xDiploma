@@ -9,12 +9,12 @@ namespace PlayerInteractable.SpaceObjects
         protected override int Alloys { get; set; } = 30;
         public override void GatherResource()
         {
-            if (Globals.Bools.HasReachedDestination)
-            {
+            // if (Globals.Bools.HasReachedDestination)
+            // {
                 ResourceGatherManager.Instance.AddMinerals(MineralsAmount);
                 ResourceGatherManager.Instance.AddAlloys(Alloys);
                 base.GatherResource();
-            }
+            // }
         }
     }
 }

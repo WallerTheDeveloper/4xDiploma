@@ -1,7 +1,6 @@
-using System;
-using System.Collections.Generic;
+using Attributes;
+using CombatSystem;
 using Core;
-using Core.Data;
 using Core.Miscellaneous;
 using Movement;
 using UnityEngine;
@@ -12,26 +11,27 @@ namespace AI
     {
         [SerializeField] private float chaseDistance = 5f;
         [SerializeField] private float suspitionTime = 1f;
-        public PatrolPath patrolPath;
         [SerializeField] float waypointTolerance = 1f;
         [SerializeField] float waypointDwellTime = 1f;
-        // private Fighter _fighter;
-        // private GameObject _player;
-        // private Health _health;
-        LazyValue<Vector3> _guardPosition;
+        public PatrolPath patrolPath;
 
+        private Fighter _fighter;
+        private GameObject[] _playerTargetFleet;
+        private Health _health;
+        LazyValue<Vector3> _guardPosition;
+        
         private Mover _mover;
         
         private float timeSinceLastSawPlayer = Mathf.Infinity;
         float timeSinceArrivedAtWaypoint = Mathf.Infinity;
+
         int currentWaypointIndex = 0;
-        
         private void Awake()
         {
-            // _fighter = GetComponent<Fighter>();
-            // _health = GetComponent<Health>();
-            // _player = GameObject.FindWithTag("Player");
+            _fighter = GetComponent<Fighter>();
+            _health = GetComponent<Health>();
             _mover = GetComponent<Mover>();
+            _playerTargetFleet = GameObject.FindGameObjectsWithTag(Globals.Tags.SelectableUnitTag);
             _guardPosition = new LazyValue<Vector3>(GetGuardPosition);
         }
 
@@ -47,19 +47,22 @@ namespace AI
 
         private void Update()
         {
-            // if (_health.IsDead()) return;
-
-            // if (InAttackRangeOfPlayer() && _fighter.CanAttack(_player))
-            // {
-            //     AttackBehaviour();
-            // }
-            // else if (timeSinceLastSawPlayer < suspitionTime)
-            // {
-            //     SuspicionBehaviour();
-            // }
-            if (timeSinceLastSawPlayer < suspitionTime)
+            if (_health.IsDead()) return;
+            
+            if (TryGetComponent(out Fighter fighter))
             {
-                SuspicionBehaviour();
+                if (InAttackRangeOfPlayer() && _fighter.CanAttack(FindClosestTarget()))
+                {
+                    AttackBehaviour();
+                }
+                else if (timeSinceLastSawPlayer < suspitionTime)
+                {
+                    SuspicionBehaviour();
+                }
+                else
+                {
+                    PatrolBehaviour();
+                }
             }
             else
             {
@@ -68,13 +71,32 @@ namespace AI
             UpdateTimers();
         }
 
+        private GameObject FindClosestTarget()
+        {
+            float distanceToClosestEnemy = Mathf.Infinity;
+            GameObject closestTarget = null;
+
+            foreach (var currentTarget in _playerTargetFleet)
+            {
+                if (currentTarget == null) continue;
+                float distanceToTarget = (currentTarget.transform.position - this.transform.position).sqrMagnitude;
+                if (distanceToTarget < distanceToClosestEnemy)
+                {
+                    distanceToClosestEnemy = distanceToTarget;
+                    closestTarget = currentTarget;
+                }
+            }
+
+            return closestTarget;
+        }
+        
         private void UpdateTimers()
         {
             timeSinceLastSawPlayer += Time.deltaTime;
             timeSinceArrivedAtWaypoint += Time.deltaTime;
         }
 
-        private void PatrolBehaviour()
+        public void PatrolBehaviour()
         {
             Vector3 nextPosition = _guardPosition.value;
 
@@ -115,17 +137,18 @@ namespace AI
             GetComponent<ActionScheduler>().CancelCurrentAction();
         }
 
-        // private void AttackBehaviour()
-        // {
-        //     timeSinceLastSawPlayer = 0;
-        //     _fighter.Attack(_player);
-        // }
-        //
-        // private bool InAttackRangeOfPlayer()
-        // {
-        //     float distanceToPlayer = Vector3.Distance(_player.transform.position, transform.position);
-        //     return distanceToPlayer < chaseDistance;
-        // }
+        private void AttackBehaviour()
+        {
+            timeSinceLastSawPlayer = 0;
+            _fighter.Attack(FindClosestTarget());
+        }
+        
+        private bool InAttackRangeOfPlayer()
+        {
+            if (FindClosestTarget() == null) return false;
+            float distanceToPlayer = Vector3.Distance(FindClosestTarget().transform.position, transform.position);
+            return distanceToPlayer < chaseDistance;
+        }
 
         private void OnDrawGizmosSelected() {
             Gizmos.color = Color.blue;

@@ -44,6 +44,7 @@ namespace ShipsUpgradingSystem
         private void UpdateLevel() 
         {
             int newLevel = CalculateLevel();
+            if(newLevel > 3) return;
             if (newLevel > currentLevel.value)
             {
                 currentLevel.value = newLevel;
@@ -53,10 +54,11 @@ namespace ShipsUpgradingSystem
 
         private void LevelUpEffect()
         {
-            Instantiate(levelUpParticleEffect, transform);
+            GameObject levelUpEffect = Instantiate(levelUpParticleEffect, transform);
+            Destroy(levelUpEffect, 3f);
         }
 
-        private float GetBaseStat(Stat stat)
+        public float GetBaseStat(Stat stat)
         {
             return progression.GetStat(stat, shipType, GetLevel());
         }

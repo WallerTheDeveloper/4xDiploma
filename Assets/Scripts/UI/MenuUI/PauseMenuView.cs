@@ -1,9 +1,12 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core;
+using Loading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace UI.MenuUI
@@ -15,18 +18,16 @@ namespace UI.MenuUI
 
         private TaskCompletionSource<bool> _taskCompletion;
         private Canvas _canvas;
-        private bool _mainMenuOpened = false;
         public event Action QuitGame;
 
         private void Update()
         {
-            if (Keyboard.current.escapeKey.wasPressedThisFrame) // TODO: Exit not working
+            if (Keyboard.current.escapeKey.wasPressedThisFrame)
             {
                 OnEscapeButtonClicked();
-                print("Clicked");
             }
         }
-
+        
         public override void Init()
         {
             _canvas = GetComponent<Canvas>();
@@ -44,26 +45,13 @@ namespace UI.MenuUI
         }
         private async void OnEscapeButtonClicked()
         {
-            OnPauseClicked(true);
             var isConfirmed = await AwaitForDecision();
-            OnPauseClicked(false);
-            if (isConfirmed)
-            {
-                QuitGame?.Invoke();
-            }
         }
-        private void OnPauseClicked(bool isPaused)
-        {
-            // ProjectContext.Instance.PauseManager.SetPaused(isPaused);
-        }
-        private void OnDestroy()
-        {
-            // _pauseToggle.ValueChanged -= OnPauseClicked;
-        }
+        
         
         private void OnAcceptExit()
         {
-            _taskCompletion.SetResult(true);
+            SceneManager.LoadScene(0);
         }
 
         private void OnAcceptContinue()

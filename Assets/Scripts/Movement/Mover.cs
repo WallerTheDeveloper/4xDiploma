@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using AI;
 using Control;
@@ -21,29 +22,46 @@ namespace Movement
         // private Transform _currentTargetLocation;
         private Vector3 _currentTargetLocation;
         private static Ray GetMouseRay => Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-
-        public void InteractWithMovement()
+        
+        public bool InteractWithMovement()
         {
             StopAllCoroutines();
             bool hasHit = Physics.Raycast(GetMouseRay, out var hit, Mathf.Infinity, Globals.Layers.PLANET_LAYER_MASK); //Raycasting only when object has layer name "Planet"
             if (hasHit && hit.transform.CompareTag(Globals.Tags.ActiveObjectTag))
             {
                 PerformFlyAction(hit.transform.position);
+                return true;
             }
+        
+            return false;
         }
+        
         public void PerformFlyAction(Vector3 destination)
         {
-            if (TryGetComponent(out ActionScheduler actionScheduler))
-            {
-                actionScheduler.PerformAction(this);
-            }
+            // if (TryGetComponent(out ActionScheduler actionScheduler))
+            // {
+            //     actionScheduler.PerformAction(this);
+            // }
+            GetComponent<ActionScheduler>().CancelCurrentAction();
+            GetComponent<ActionScheduler>().PerformAction(this);
             _currentTargetLocation = destination;
 
             Fly();
         }
+
+        public void MoveTo(Vector3 destination)
+        {
+            _currentTargetLocation = destination;
+            Fly();
+        }
         public void Cancel()
         {
+            float tmp;
+            tmp = _speed;
             _speed = 0;
+            _speed = tmp;
+            // GetComponent<Rigidbody>().AddForce(0, -_speed, -_speed);
+            // GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
         private void Fly()
         {
@@ -58,6 +76,7 @@ namespace Movement
         private IEnumerator CalculateMovement()
         {
             Globals.Bools.HasReachedDestination = false;
+            
             while (Vector3.Distance(transform.position, _currentTargetLocation) > _targetDistance)
             {
                 transform.position = Vector3.MoveTowards(transform.position, _currentTargetLocation, _speed * Time.deltaTime);

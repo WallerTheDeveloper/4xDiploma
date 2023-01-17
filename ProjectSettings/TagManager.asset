@@ -15,6 +15,8 @@ TagManager:
   - Patrol Ways
   - Patrol Path
   - AI Unit
+  - Undefined
+  - ActivateSelection
   layers:
   - Default
   - TransparentFX

@@ -6,8 +6,8 @@ namespace Races
 {
     public enum RaceTypes
     {
-        MachineRace,
+        HumanRace,
         FungoidRace,
-        HumanRace
+        MachineRace
     }
 }

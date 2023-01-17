@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 21452558345629630, guid: 19fbbb0ec004e2d49af1713fe60fcdb3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21452558345629630, guid: 19fbbb0ec004e2d49af1713fe60fcdb3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278091381446363236, guid: 19fbbb0ec004e2d49af1713fe60fcdb3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2772134893478430423, guid: 19fbbb0ec004e2d49af1713fe60fcdb3, type: 3}
       propertyPath: m_Name
       value: Machine Warship
@@ -61,6 +73,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7128490845710957917, guid: 19fbbb0ec004e2d49af1713fe60fcdb3, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160571368222927128, guid: 19fbbb0ec004e2d49af1713fe60fcdb3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264090003021041346, guid: 19fbbb0ec004e2d49af1713fe60fcdb3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264090003021041346, guid: 19fbbb0ec004e2d49af1713fe60fcdb3, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8389305270008139171, guid: 19fbbb0ec004e2d49af1713fe60fcdb3, type: 3}

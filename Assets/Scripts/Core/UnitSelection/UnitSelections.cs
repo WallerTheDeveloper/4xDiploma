@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Attributes;
 using Control;
 using UnityEngine;
 
@@ -73,7 +74,14 @@ namespace Core.UnitSelection
         }
         private void ActivateSelectionCircle(GameObject unit, bool isActive)
         {
-            unit.transform.GetChild(1).gameObject.SetActive(isActive);
+            foreach (Transform child in unit.transform)
+            {
+                if (child.tag == Globals.Tags.ActivateSelection)
+                {
+                    // unit.transform.GetChild(1).gameObject.SetActive(isActive);
+                    child.gameObject.SetActive(isActive);
+                }
+            }
         }
         private void ActivateMovement(GameObject unit, bool isEnabled)
         {
