@@ -1,5 +1,5 @@
 # Parallax
-4X strategy game made for my university as a diploma project
+4X strategy game made with Unity Engine for my university as a diploma project
 
 ## Core Gameplay
 The core gameplay is exploring new territories, expanding this territory, exploiting resources and exterminating enemies on map.
